@@ -39,8 +39,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		//SecurityPageConfigurationUtil.userManagement(http);
-		//SecurityPageConfigurationUtil.groupManagement(http);
+		SecurityPageConfigurationUtil.userManagement(http);
+		SecurityPageConfigurationUtil.groupManagement(http);
 		
 		http.authorizeRequests()
 		.and()
