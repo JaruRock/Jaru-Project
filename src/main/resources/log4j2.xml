@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" shutdownHook="disable">
+    <Properties>
+        <Property name="log-path">${sys:user.home}/log/KMSWebPortal</Property>
+        <!-- <Property name="debug-pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] - [%X{uuid}][%X{kioskId}] - %msg%n</Property> -->
+        <Property name="debug-pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] - %msg%n</Property>
+        <Property name="tx-pattern">%d{yyyy-MM-dd HH:mm:ss.SSS}|%msg%n</Property>
+        <Property name="archive-pattern">%d{yyyyMMdd}</Property>
+        <Property name="console-pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %p %c{1.} [%t] - %msg%n</Property>
+    </Properties>
+    
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+          <PatternLayout pattern="%{console-pattern}"/>
+        </Console>
+        
+        <!-- KMSWebPortal -->
+        <RollingFile name="KMSWebPortal_Debug" fileName="${log-path}/KMSWebPortal_Debug.log" 
+            filePattern="${log-path}/KMSWebPortal_Debug.log.${archive-pattern}">
+            <PatternLayout>
+                <pattern>${debug-pattern}</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy /><!-- Rotated everyday -->
+                <!-- <SizeBasedTriggeringPolicy size="100 MB"/> --> <!-- Or every 100 MB -->
+            </Policies>
+        </RollingFile>
+        <!-- KMSWebPortal -->
+        <RollingFile name="KMSWebPortal_Lib_Debug" fileName="${log-path}/KMSWebPortal_Lib_Debug.log" 
+            filePattern="${log-path}/KMSWebPortal_Lib_Debug.log.${archive-pattern}">
+            <PatternLayout>
+                <pattern>${debug-pattern}</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy /><!-- Rotated everyday -->
+                <!-- <SizeBasedTriggeringPolicy size="100 MB"/> --> <!-- Or every 100 MB -->
+            </Policies>
+        </RollingFile>
+        <RollingFile name="KMSWebPortal_Tx" fileName="${log-path}/KMSWebPortal_Tx.log" 
+            filePattern="${log-path}/KMSWebPortal_Tx.log.${archive-pattern}">
+            <PatternLayout>
+                <pattern>${tx-pattern}</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy /><!-- Rotated everyday -->
+                <!-- <SizeBasedTriggeringPolicy size="100 MB"/> --> <!-- Or every 100 MB -->
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+
+        <root level="info" additivity="false">
+            <AppenderRef ref="STDOUT"/>
+        </root>
+
+        <!-- KMSWebPortal -->
+        <Logger level="debug" name="th.co.tac.kms.web" additivity="false">
+            <AppenderRef level="debug" ref="KMSWebPortal_Debug"/>
+        </Logger>
+        <Logger level="debug" name="org.springframework" additivity="false">
+            <AppenderRef level="debug" ref="KMSWebPortal_Lib_Debug"/>
+        </Logger>
+        <Logger level="debug" name="org.hibernate" additivity="false">
+            <AppenderRef level="debug" ref="KMSWebPortal_Lib_Debug"/>
+        </Logger>
+        <Logger level="info" name="KMSWebPortal_Tx" additivity="false">
+            <AppenderRef level="info" ref="KMSWebPortal_Tx"/>
+        </Logger>
+    </Loggers>
+</Configuration>
