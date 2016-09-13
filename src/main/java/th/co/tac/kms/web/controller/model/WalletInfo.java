@@ -103,7 +103,7 @@ public class WalletInfo {
 	public String getMemberType() {
 		return memberType;
 	}
-	//
+	//   
 	public void setMemberType(String memberType) {
 		this.memberType = memberType;
 	}
