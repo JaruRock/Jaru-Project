@@ -75,4 +75,8 @@
 		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-hardware-status.jsp" />
 	</definition>
 	
+		<definition name="edit.kiosk.profile" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/kiosk-profile/edit-kiosk-profile.jsp" />
+	</definition>
+	
 </tiles-definitions>
