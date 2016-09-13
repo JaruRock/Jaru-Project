@@ -7,6 +7,8 @@ public class RenterInfo {
 	private String firstName;
 	private String lastName;
 	private String contactNumber;
+	
+	
 	public Long getRenterId() {
 		return renterId;
 	}
