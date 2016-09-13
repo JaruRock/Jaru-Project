@@ -9,11 +9,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><tiles:insertAttribute name="title" ignore="true" /></title>
 	
+	<c:set var="cPath" scope="session" value="<%=request.getContextPath()%>"/>
+	
 	<link href="<c:url value="/resources/images/favicon.ico" />" rel="icon" />
 	<link href="<c:url value="/resources/images/favicon.ico" />" rel="shortcut icon"/>
 	<link href="<c:url value='/resources/components/bootstrap/css/bootstrap.min.css' />"  rel="stylesheet" />
 	<link href="<c:url value='/resources/css/kms-web-custom.css' />" rel="stylesheet" />
 	<link href="<c:url value='/resources/components/font-awesome-4.6.3/css/font-awesome.css' />" rel="stylesheet" />
+	
+	<script type="text/javascript" src="${cPath}/resources/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="${cPath}/resources/components/bootstrap/js/bootstrap.min.js"></script> 
 	
 	<!-- Custom styles for implement page -->
 	<tiles:insertAttribute name="custom-css" ignore="true" />
