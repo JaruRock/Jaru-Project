@@ -29,6 +29,7 @@ public class HibernateConfiguration {
 	@Autowired()
 	protected DataSource dataSource;
 	
+	
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
