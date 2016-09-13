@@ -28,6 +28,7 @@ public class LocationDao extends AbstractDao {
 			"         road, postal_code, id_location_type, other_location)" +
 			"   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?)" ;
 	
+	
 	public Long create(final LocationInfo locationInfo) { 
 		KeyHolder keyHolder = new GeneratedKeyHolder(); 		
 		jdbcTemplate.update(new PreparedStatementCreator() {  
