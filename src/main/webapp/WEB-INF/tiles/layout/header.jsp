@@ -27,8 +27,6 @@
 		<c:if test="${loggedinuser != null}">
 		<div class="collapse navbar-collapse" id="kms-web-navbar">
 		    <ul class="nav navbar-nav">
-<!-- 		    	<li><a href="#">Kiosk</a></li> -->
-<!-- 		    	<li><a href="#">Report</a></li> -->
 		    	<li class="dropdown">
 		            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="kiosk"><i class="fa fa-cubes"></i> Kiosk<span class="caret"></span></a>
 		            <ul class="dropdown-menu" aria-labelledby="themes" id="kiosk">

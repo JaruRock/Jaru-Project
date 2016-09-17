@@ -35,11 +35,12 @@ public class AuthenController extends AbstractController {
 	}
 	
 	@RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
-	public String welcomePage(ModelMap model) {
+	public String welcomePage(HttpServletRequest req, ModelMap model) {
 		if (isCurrentAuthenticationAnonymous()) {
 			return "login";
 		} else {
-			model.addAttribute("loggedinuser", getPrincipal());
+			req.getSession(true).setAttribute("loggedinuser", getPrincipal());
+//			model.addAttribute("loggedinuser", getPrincipal());
 			return "welcome";
 		}
 	}

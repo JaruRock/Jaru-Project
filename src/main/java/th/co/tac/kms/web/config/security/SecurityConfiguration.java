@@ -17,8 +17,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
-import th.co.tac.kms.web.config.security.util.SecurityPageConfigurationUtil;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -32,24 +30,29 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
+		
+		// TODO comment for allow all authorize
 //		auth.userDetailsService(userDetailsService);
 //		auth.authenticationProvider(authenticationProvider());
 		
+		// TODO for allow all authorize
 		auth.inMemoryAuthentication()
-			.withUser("admin")
-			.password("password")
-			.authorities("ROLE_ADMIN")
-			.roles("01");
+		.withUser("admin")
+		.password("password")
+		.authorities("ROLE_ADMIN");
+		
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		SecurityPageConfigurationUtil.userManagement(http);
-		SecurityPageConfigurationUtil.groupManagement(http);
+		// TODO for allow all authorize
+//		SecurityPageConfigurationUtil.userManagement(http);
+//		SecurityPageConfigurationUtil.groupManagement(http);
 		
+		// TODO for allow all authorize
 		http.authorizeRequests()
-		.antMatchers( "/**" ).permitAll()
+		.antMatchers( "/**") .permitAll()
 		
 		.and()
 		.formLogin()

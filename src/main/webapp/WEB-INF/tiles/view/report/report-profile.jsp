@@ -15,8 +15,11 @@
 		
 		<div class="row">
 		
-		  <fieldset><div class="well">
+		  <fieldset><div class=" ">
 		   <form class="form-horizontal">  
+		   <div class="col-lg-12">
+					<h3>ค้นหาตู้เติมเงิน</h3>
+				</div>
 	          <div class="col-lg-6">
                   <div class="form-group">
                     <label for="name" class="col-lg-4 control-label">Host ID</label>
