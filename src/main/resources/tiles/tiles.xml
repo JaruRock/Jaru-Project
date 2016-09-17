@@ -46,4 +46,33 @@
 		<put-attribute name="body" value="/WEB-INF/tiles/view/group-management/group-list.jsp" />
 	</definition>
 	
+	
+	<!-- Register Kiosk-->
+	<definition name="kiosk.register" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/kiosk/kiosk-register.jsp" />
+	</definition>
+	<definition name="kiosk.profile" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/kiosk/kiosk-profile.jsp" />
+	</definition>
+	
+	<!-- ######## KIOSK REPORT ######## -->
+	<definition name="report.customerBalance" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-customer-balance.jsp" />
+	</definition>
+	<definition name="report.movement" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-movement.jsp" />
+	</definition>
+	<definition name="report.shift" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-shift.jsp" />
+	</definition>
+	<definition name="report.profile" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-profile.jsp" />
+	</definition>
+	<definition name="report.audit" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-audit.jsp" />
+	</definition>
+	<definition name="report.hardwareStatus" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-hardware-status.jsp" />
+	</definition>
+	
 </tiles-definitions>

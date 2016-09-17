@@ -3,9 +3,12 @@ package th.co.tac.kms.web.controller.model;
 public class RenterInfo {
  
 	private Long renterId;
+	private int titleId;
 	private String firstName;
 	private String lastName;
 	private String contactNumber;
+	
+	
 	public Long getRenterId() {
 		return renterId;
 	}
@@ -29,6 +32,12 @@ public class RenterInfo {
 	}
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
+	}
+	public int getTitleId() {
+		return titleId;
+	}
+	public void setTitleId(int titleId) {
+		this.titleId = titleId;
 	}
 	
 	
