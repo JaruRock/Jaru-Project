@@ -19,5 +19,10 @@ public class KioskAuditReportService {
 		return kioskAuditReportList;
 	}
 	
+	public List<KioskAuditReportCritiria> findByKioskAuditReportCritiria(String username) {
+		List<KioskAuditReportCritiria> kioskAuditReportCritiriaList = new ArrayList<KioskAuditReportCritiria>();
+
+		return kioskAuditReportCritiriaList;
+	}
 	
 }
