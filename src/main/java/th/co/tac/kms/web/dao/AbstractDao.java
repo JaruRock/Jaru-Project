@@ -1,51 +1,89 @@
 package th.co.tac.kms.web.dao;
 
 import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
+import java.util.Scanner;
+
+import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.stereotype.Repository;
 
-public abstract class AbstractDao<PK extends Serializable, T> {
+import th.co.tac.kms.web.config.sql.SQLPropertyFileConfig;
 
-	protected Logger logger = LogManager.getLogger(this.getClass());
+/**
+ * <p> SODA Project </p>
+ * @version 1.0
+ * @author Phongsathorn Anguyarn <phongsathorn@xp-link.com>
+ * @since September, 2016
+ *
+ */
+
+@Repository
+public abstract class AbstractDao extends JdbcDaoSupport implements Serializable {
+
+	private static final long serialVersionUID = 5150364520692513184L;
+
+	private static final String SRVC_NAME = "DAO";
+	private Logger logger = LogManager.getLogger(this.getClass());
+
+	@Lazy
+	@Autowired()
+	protected DataSource dataSource;
 	
-	private final Class<T> persistentClass;
-
-	@SuppressWarnings("unchecked")
-	public AbstractDao() {
-		this.persistentClass = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[1];
-	}
-
 	@Autowired
-	private SessionFactory sessionFactory;
-
-	protected Session getSession() {
-		return sessionFactory.getCurrentSession();
+	protected SQLPropertyFileConfig sqlConfig;
+	
+	@PostConstruct
+	private void initialize() {
+		setDataSource(this.dataSource);
+	}
+	
+	protected void log_info(String msg) {
+		this.logger.info("[" + SRVC_NAME + "] - " + msg);
+	}
+	
+	protected void log_debug(String msg) {
+		this.logger.debug("[" + SRVC_NAME + "] - " + msg);
+	}
+	
+	protected void log_error(String msg) {
+		this.logger.error("[" + SRVC_NAME + "] - " + msg);
+	}
+	
+	protected void log_error(String msg, Throwable e) {
+		this.logger.error("[" + SRVC_NAME + "] - " + msg);
+		logTrowable(e);
 	}
 
-	public T getByKey(PK key) {
-		return (T) getSession().get(persistentClass, key);
+	private void logTrowable(Throwable cause) {
+		String prefix = "Cause by " + cause.getClass().getName() + ": ";
+		String message = cause.getMessage();
+		if (message != null) {
+			Scanner sc = new Scanner(message);
+			while (sc.hasNext()) {
+				this.logger.error(prefix + sc.nextLine());
+				prefix = "  ";
+			}
+			sc.close();
+		} else {
+			this.logger.error(prefix);
+		}
+		StackTraceElement[] traces = cause.getStackTrace();
+		for (StackTraceElement trace : traces) {
+			this.logger.error(toStackTraceString(trace));
+		}
+		if (cause.getCause() != null) {
+			logTrowable(cause.getCause());
+		}
 	}
 
-	public void create(T entity) {
-		getSession().persist(entity);
+	private String toStackTraceString(StackTraceElement trace) {
+		return "  at " + trace.getClassName() + "." + trace.getMethodName() + " (" + trace.getFileName() + ":" + trace.getLineNumber() + ")";
 	}
-
-	public void update(T entity) {
-		getSession().update(entity);
-	}
-
-	public void delete(T entity) {
-		getSession().delete(entity);
-	}
-
-	protected Criteria createEntityCriteria() {
-		return getSession().createCriteria(persistentClass);
-	}
-
+	
 }

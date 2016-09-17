@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="SELECT_PERSIT_TOKEN">
+		<![CDATA[
+			SELECT series, last_used, token, username 
+			FROM kms_web_persistent_login 
+			WHERE series = ? 
+		]]>
+	</entry>
+	
+	<entry key="INSERT_PERSIT_TOKEN">
+		<![CDATA[
+			INSERT INTO kms_web_persistent_login(username, series, token, last_used) 
+			VALUES (?, ?, ?, ?) 
+		]]>
+	</entry>
+	
+	<entry key="DELETE_PERSIT_TOKEN">
+		<![CDATA[
+			DELETE FROM kms_web_persistent_login 
+			WHERE username = ? 
+		]]>
+	</entry>
+	
+	<entry key="UPDATE_PERSIT_TOKEN">
+		<![CDATA[
+			UPDATE kms_web_persistent_login
+			SET token=?, last_used=? 
+			WHERE  series = ? 
+		]]>
+	</entry>
+	
+</properties>

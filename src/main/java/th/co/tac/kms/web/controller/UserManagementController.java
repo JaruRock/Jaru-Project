@@ -15,32 +15,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
-import th.co.tac.kms.web.controller.model.GroupInfo;
 import th.co.tac.kms.web.controller.model.UserInfo;
-import th.co.tac.kms.web.service.GroupService;
 import th.co.tac.kms.web.service.UserService;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes("groupList")
 public class UserManagementController extends AbstractWebController {
 
 	@Autowired
 	private UserService userService;
 
 	@Autowired
-	private GroupService groupService;
-	
-	@Autowired
 	private MessageSource messageSource;
 
-	@ModelAttribute("groupList")
-	public List<GroupInfo> initializeProfiles() {
-		return groupService.findAll();
-	}
-	
 	@ModelAttribute("navClassActiveAdmin")
 	public String menuActive() {
 		return "active"; // TODO: active navigate menu

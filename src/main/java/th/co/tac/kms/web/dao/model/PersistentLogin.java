@@ -3,30 +3,22 @@ package th.co.tac.kms.web.dao.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+/**
+ * <p> SODA Project </p>
+ * @version 1.0
+ * @author Phongsathorn Anguyarn <phongsathorn@xp-link.com>
+ * @since September, 2016
+ *
+ */
 
-@Entity
-@Table(name = "kms_persistent_login")
 public class PersistentLogin implements Serializable {
 
-	private static final long serialVersionUID = 7767399254550724201L;
+	private static final long serialVersionUID = 4584068364688718699L;
 
-	@Id
 	private String series;
-
-	@Column(name = "username", unique = true, nullable = false)
 	private String username;
-
-	@Column(name = "token", unique = true, nullable = false)
 	private String token;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date last_used;
+	private Date lastUsed;
 
 	public String getSeries() {
 		return series;
@@ -52,12 +44,27 @@ public class PersistentLogin implements Serializable {
 		this.token = token;
 	}
 
-	public Date getLast_used() {
-		return last_used;
+	public Date getLastUsed() {
+		return lastUsed;
 	}
 
-	public void setLast_used(Date last_used) {
-		this.last_used = last_used;
+	public void setLastUsed(Date lastUsed) {
+		this.lastUsed = lastUsed;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("PersistentLogin [series=");
+		builder.append(series);
+		builder.append(", username=");
+		builder.append(username);
+		builder.append(", token=");
+		builder.append(token);
+		builder.append(", lastUsed=");
+		builder.append(lastUsed);
+		builder.append("]");
+		return builder.toString();
 	}
 
 }
