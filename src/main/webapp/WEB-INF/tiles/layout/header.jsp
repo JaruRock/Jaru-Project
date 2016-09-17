@@ -11,6 +11,7 @@
 		<span class="text-muted">Dear <strong>${loggedinuser}</strong>, Language:&nbsp;<spring:message code="user.title"/></span>
 		</c:if>
 	</div>
+	
 	<div class="container">
 		<div class="navbar-header">
 			<button aria-controls="navbar" aria-expanded="false" data-target="#kms-web-navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
@@ -26,15 +27,45 @@
 		<c:if test="${loggedinuser != null}">
 		<div class="collapse navbar-collapse" id="kms-web-navbar">
 		    <ul class="nav navbar-nav">
-		    	<li><a href="#">Kiosk</a></li>
-		    	<li><a href="#">Report</a></li>
-		    	<li class="${navClassActiveAdmin}"><a href="<c:url value="/user-list" />">Admin Area</a></li>
+<!-- 		    	<li><a href="#">Kiosk</a></li> -->
+<!-- 		    	<li><a href="#">Report</a></li> -->
+		    	<li class="dropdown">
+		            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="kiosk"><i class="fa fa-cubes"></i> Kiosk<span class="caret"></span></a>
+		            <ul class="dropdown-menu" aria-labelledby="themes" id="kiosk">
+			             <li><a href="kiosk-register" class="smoothScroll line-txt"> Register Kiosk</a></li>
+			             <li class="divider"></li>
+						 <li><a href="kiosk-profile" class="smoothScroll line-txt"> Edit Kiosk Profile</a></li>
+		            </ul>
+		        </li>
+		    	<li class="dropdown">
+		            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="report"><i class="fa fa-file-o"></i> Report<span class="caret"></span></a>
+		            <ul class="dropdown-menu" aria-labelledby="themes" id="report">
+						<li><a href="report-customer-balance" class="smoothScroll line-txt">Query Customer Balance       </a></li> 
+			             <li class="divider"></li>
+						<li><a href="report-movement" class="smoothScroll line-txt">Kiosk Movement               </a></li> 
+			             <li class="divider"></li>
+						<li><a href="report-shift" class="smoothScroll line-txt">Kiosk Shift Report           </a></li> 
+			             <li class="divider"></li>
+						<li><a href="report-profile" class="smoothScroll line-txt">Kiosk Profile Report         </a></li> 
+			             <li class="divider"></li>
+						<li><a href="report-audit" class="smoothScroll line-txt">Kiosk Audit Report           </a></li> 
+			             <li class="divider"></li>
+						<li><a href="report-alarm" class="smoothScroll line-txt">Kiosk Alarm Report           </a></li> 
+			             <li class="divider"></li>
+						<li><a href="#" class="smoothScroll line-txt">Kiosk Hardware Status Report </a></li> 
+
+		            </ul>
+		        </li>
+		    	<li class="${navClassActiveAdmin}"><a href="<c:url value="/user-list" />"><i class="fa fa-user"></i> Admin Area</a></li>
 		    </ul>
+		    
+		    
 		    <ul class="nav navbar-nav navbar-right">
 		      <li>
 		      <a href="<c:url value="/logout" />"><span class="glyphicon glyphicon-log-in">&nbsp;</span><spring:message code="logout.button" /></a>
 		      </li>
-		  </ul>
+		 	</ul>
+		  
 		</div>
 		</c:if>
 	</div>
