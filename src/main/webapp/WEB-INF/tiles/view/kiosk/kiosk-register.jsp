@@ -5,7 +5,7 @@
 
 <div class="container" style="margin-top: 50px">
 	 <c:if test="${not empty param.success}">
-	 		${param.success}
+	 		<div class="alert alert-success" role="alert">${param.success}</div>
 	 </c:if>
 	 <form:form method="POST" action="/kiosk-register" modelAttribute="keyform" class="form-horizontal">
 	 <h4>Kiosk Profile (API from AIS)</h4>
@@ -129,7 +129,7 @@
                 <label class="col-md-3 control-lable" for="kioskStatus">สถานะตู้เติมเงิน</label>
                 <div class="col-md-7">
                       <form:select  path="kioskStatus" class="form-control input-sm" >
-              			<form:option value=""> --SELECT--</form:option>
+              			<form:option value="">Pre Active</form:option>
 					    <form:option value="A">Active</form:option>
 					    <form:option value="I">In Active</form:option>
 					    <form:option value="L">Locked</form:option>
@@ -154,9 +154,9 @@
                 <div class="col-md-7">
                       <form:select  path="areaTitleName" class="form-control input-sm" >
                         <form:option value=""> -- Select -- </form:option>
-					    <form:option value="10001">Active</form:option>
-					    <form:option value="10002">In Active</form:option>
-					    <form:option value="10003">Locked</form:option>
+					    <form:option value="10001">นาย</form:option>
+					    <form:option value="10002">นาง</form:option>
+					    <form:option value="10003">นางสาว</form:option>
 <%-- 					    <form:options items="${listOfInstitutionsNames}"></form:options> --%>
 					  </form:select>                    
 					  <div class="has-error">
@@ -283,7 +283,10 @@
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="kioskAreaProvice">จังหวัด * </label>
                 <div class="col-md-7">
-					 <form:input type="text" path="kioskAreaProvice" class="form-control input-sm" />
+					  <form:select  path="kioskAreaProvice" class="form-control input-sm" >
+                        <form:option value=""> -- Select -- </form:option>
+					  	<form:option value="10">กรุงเทพ</form:option>
+					  </form:select>
                     <div class="has-error">
                         <form:errors path="kioskAreaProvice" class="help-inline"/>
                     </div>
@@ -296,7 +299,10 @@
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="kioskAreaDistrict">เขต /อำเภอ *  </label>
                 <div class="col-md-7">
-					 <form:input type="text" path="kioskAreaDistrict" class="form-control input-sm" />
+					  <form:select  path="kioskAreaDistrict" class="form-control input-sm" >
+                        <form:option value=""> -- Select -- </form:option>
+					  	<form:option value="10">ห้วยขวาง</form:option>
+					  </form:select>
                     <div class="has-error">
                         <form:errors path="kioskAreaDistrict" class="help-inline"/>
                     </div>
@@ -309,8 +315,10 @@
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="kioskAreaTambon">แขวง / ตำบล * </label>
                 <div class="col-md-7">
-					 <form:input type="text" path="kioskAreaTambon" class="form-control input-sm" />
-                    <div class="has-error">
+					  <form:select  path="kioskAreaTambon" class="form-control input-sm" >
+                        <form:option value=""> -- Select -- </form:option>
+					  	<form:option value="10">ห้วยขวาง</form:option>
+					  </form:select>                    <div class="has-error">
                         <form:errors path="kioskAreaTambon" class="help-inline"/>
                     </div>
                 </div>
@@ -498,12 +506,12 @@
    
         <div class="row">
             <div class="form-actions floatRight text-center">
-<%--                     <c:when test="${edit}"> --%>
-                        <button type="submit" class="btn btn-primary btn-sm">Register</button>
-<%--                     </c:when> --%>
-<%--                     <c:otherwise> --%>
-                        <a href="<c:url value='/user-list' />" class="btn btn-default custom-width">Cancel</a>
-<%--                     </c:otherwise> --%>
+                        <button type="submit" class="btn btn-primary">
+                       	 	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Register
+                        </button>
+                        <a href="<c:url value='/user-list' />" class="btn btn-default">
+                        	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+                        </a>
             </div>
         </div>      
                     	         	                     
