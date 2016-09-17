@@ -22,7 +22,7 @@ public class KioskProfileService {
 		profile.setName("rob");
 		profile.setLastName("f");
 		profile.setTelephoneNo("099332244");
-		profile.setNameNetworkMA("Tone");
+		//profile.setNameNetworkMA("Tone");
 		profile.setKioskId("7");
 		
 		kioskprofile.add(profile);

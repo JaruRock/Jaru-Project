@@ -22,7 +22,7 @@ public class KioskProfileController  extends AbstractController{
 	
 	@Autowired KioskProfileService kioskprofileservice;
 	
-	@RequestMapping(value = { "/edit-kiosk-search" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/edit-kiosk-profile" }, method = RequestMethod.GET)
 	public String searchKioskaProfile(  ModelMap model) {
 		List <KioskProfile> kioskprofile = new ArrayList<KioskProfile>();
 		//kioskprofile = kioskprofileservice.kioskProfileSearch(kiosk);

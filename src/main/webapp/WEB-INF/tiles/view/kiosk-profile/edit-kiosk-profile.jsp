@@ -125,7 +125,7 @@
                     <td>${kiosk1.province}</td>
                     <td>${kiosk1.amphur}</td>
                     <td>${kiosk1.district}</td>
-                    <td>${kiosk1.kioskStatus}</td>
+                    <td>${kiosk.kioskStatus}</td>
                     <td></td>
                     
                 </tr>
