@@ -71,6 +71,9 @@
 	<definition name="report.audit" extends="base.layout">
 		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-audit.jsp" />
 	</definition>
+	<definition name="report.alarm" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-alarm.jsp" />
+	</definition>
 	<definition name="report.hardwareStatus" extends="base.layout">
 		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-hardware-status.jsp" />
 	</definition>

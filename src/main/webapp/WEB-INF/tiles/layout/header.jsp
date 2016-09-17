@@ -30,27 +30,27 @@
 		    	<li class="dropdown">
 		            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="kiosk"><i class="fa fa-cubes"></i> Kiosk<span class="caret"></span></a>
 		            <ul class="dropdown-menu" aria-labelledby="themes" id="kiosk">
-			             <li><a href="kiosk-register" class="smoothScroll line-txt"> Register Kiosk</a></li>
+			             <li><a href="${cPath}/kiosk-register" class="smoothScroll line-txt"> Register Kiosk</a></li>
 			             <li class="divider"></li>
-						 <li><a href="kiosk-profile" class="smoothScroll line-txt"> Edit Kiosk Profile</a></li>
+						 <li><a href="${cPath}/kiosk-profile" class="smoothScroll line-txt"> Edit Kiosk Profile</a></li>
 		            </ul>
 		        </li>
 		    	<li class="dropdown">
 		            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="report"><i class="fa fa-file-o"></i> Report<span class="caret"></span></a>
 		            <ul class="dropdown-menu" aria-labelledby="themes" id="report">
-						<li><a href="report-customer-balance" class="smoothScroll line-txt">Query Customer Balance       </a></li> 
+						<li><a href="${cPath}/report-customer-balance" class="smoothScroll line-txt">Query Customer Balance       </a></li> 
 			             <li class="divider"></li>
-						<li><a href="report-movement" class="smoothScroll line-txt">Kiosk Movement               </a></li> 
+						<li><a href="${cPath}/report-movement" class="smoothScroll line-txt">Kiosk Movement               </a></li> 
 			             <li class="divider"></li>
-						<li><a href="report-shift" class="smoothScroll line-txt">Kiosk Shift Report           </a></li> 
+						<li><a href="${cPath}/report-shift" class="smoothScroll line-txt">Kiosk Shift Report           </a></li> 
 			             <li class="divider"></li>
-						<li><a href="report-profile" class="smoothScroll line-txt">Kiosk Profile Report         </a></li> 
+						<li><a href="${cPath}/report-profile" class="smoothScroll line-txt">Kiosk Profile Report         </a></li> 
 			             <li class="divider"></li>
-						<li><a href="report-audit" class="smoothScroll line-txt">Kiosk Audit Report           </a></li> 
+						<li><a href="${cPath}/report-audit" class="smoothScroll line-txt">Kiosk Audit Report           </a></li> 
 			             <li class="divider"></li>
-						<li><a href="report-alarm" class="smoothScroll line-txt">Kiosk Alarm Report           </a></li> 
+						<li><a href="${cPath}/report-alarm" class="smoothScroll line-txt">Kiosk Alarm Report           </a></li> 
 			             <li class="divider"></li>
-						<li><a href="#" class="smoothScroll line-txt">Kiosk Hardware Status Report </a></li> 
+						<li><a href="${cPath}/report-hardware-status" class="smoothScroll line-txt">Kiosk Hardware Status Report </a></li> 
 
 		            </ul>
 		        </li>
