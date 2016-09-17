@@ -1,20 +1,10 @@
-package th.co.tac.kms.web.dao;
+package th.co.tac.kms.web.service;
 
-import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.Scanner;
 
-import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
-import org.springframework.stereotype.Repository;
-
-import th.co.tac.kms.web.config.sql.SQLPropertyFileConfig;
 
 /**
  * <p> SODA Project </p>
@@ -24,25 +14,11 @@ import th.co.tac.kms.web.config.sql.SQLPropertyFileConfig;
  *
  */
 
-@Repository
-public abstract class AbstractDao extends JdbcDaoSupport implements Serializable {
+public class AbstractService {
 
-	private static final long serialVersionUID = 5150364520692513184L;
-
-	private static final String LOG_SRVC_NAME = "[DAO] - ";
 	private Logger logger = LogManager.getLogger(this.getClass());
-
-	@Lazy
-	@Autowired()
-	protected DataSource dataSource;
+	private static final String LOG_SRVC_NAME = "[SRVC] - ";
 	
-	@Autowired
-	protected SQLPropertyFileConfig sqlConfig;
-	
-	@PostConstruct
-	private void initialize() {
-		setDataSource(this.dataSource);
-	}
 	
 	protected void log_info(String wording, Object... arguments) {
 		String mesg = MessageFormat.format(wording, arguments);
@@ -96,5 +72,4 @@ public abstract class AbstractDao extends JdbcDaoSupport implements Serializable
 	private String toStackTraceString(StackTraceElement trace) {
 		return "  at " + trace.getClassName() + "." + trace.getMethodName() + " (" + trace.getFileName() + ":" + trace.getLineNumber() + ")";
 	}
-	
 }

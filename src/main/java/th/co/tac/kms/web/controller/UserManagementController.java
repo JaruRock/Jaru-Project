@@ -21,7 +21,7 @@ import th.co.tac.kms.web.service.UserService;
 
 @Controller
 @RequestMapping("/")
-public class UserManagementController extends AbstractWebController {
+public class UserManagementController extends AbstractController {
 
 	@Autowired
 	private UserService userService;

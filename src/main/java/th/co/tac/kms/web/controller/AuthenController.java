@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @RequestMapping("/")
 @SessionAttributes("roles")
-public class AuthenController extends AbstractWebController {
+public class AuthenController extends AbstractController {
 
 	@Autowired
 	PersistentTokenBasedRememberMeServices persistentTokenBasedRememberMeServices;

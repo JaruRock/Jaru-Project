@@ -3,8 +3,6 @@ package th.co.tac.kms.web.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,9 +15,7 @@ import th.co.tac.kms.web.dao.UserDao;
 import th.co.tac.kms.web.dao.model.User;
 
 @Service("customUserDetailsService")
-public class CustomUserDetailsService implements UserDetailsService {
-
-	private Logger logger = LogManager.getLogger(this.getClass());
+public class CustomUserDetailsService extends AbstractService implements UserDetailsService {
 
 	@Autowired
 	private UserDao userDao;
@@ -27,9 +23,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = null; //userDao.findByUsername(username);
-		 logger.info("User : {}", user);
+		 log_info("User : {}", user);
 		if (user == null) {
-			logger.info("User not found");
+			log_info("User not found");
 			throw new UsernameNotFoundException("Username not found");
 		}
 		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), true, true,
@@ -50,7 +46,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 //				}
 //			}
 //		}
-		logger.info("authorities : {}", authorities);
+		log_info("authorities : {}", authorities);
 		return authorities;
 	}
 
