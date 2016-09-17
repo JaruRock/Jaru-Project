@@ -13,16 +13,11 @@ import th.co.tac.kms.web.controller.model.KioskAuditReportCritiria;
 @Transactional
 public class KioskAuditReportService {
 
-	public List<KioskAuditReport> findByKioskAuditReport(String username) {
+	public List<KioskAuditReport> findByKioskAuditReport(KioskAuditReportCritiria kioskAuditReportCritiria) {
 		List<KioskAuditReport> kioskAuditReportList = new ArrayList<KioskAuditReport>();
 
 		return kioskAuditReportList;
 	}
 	
-	public List<KioskAuditReportCritiria> findByKioskAuditReportCritiria(String username) {
-		List<KioskAuditReportCritiria> kioskAuditReportCritiriaList = new ArrayList<KioskAuditReportCritiria>();
 
-		return kioskAuditReportCritiriaList;
-	}
-	
 }
