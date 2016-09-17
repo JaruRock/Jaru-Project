@@ -4,7 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="container" style="margin-top: 50px">
-
+	 <c:if test="${not empty param.success}">
+	 		${param.success}
+	 </c:if>
 	 <form:form method="POST" action="/kiosk-register" modelAttribute="keyform" class="form-horizontal">
 	 <h4>Kiosk Profile (API from AIS)</h4>
 	 <hr>
@@ -13,9 +15,9 @@
                 <label class="col-md-3 control-lable" for="networkMa">ชื่อ Network MA *</label>
                 <div class="col-md-7">
                       <form:select  path="networkMa" class="form-control input-sm" >
-					    <form:option value="NONE"> --SELECT--</form:option>
-					    <form:option value="AIS"> --AIS--</form:option>
-					    <form:option value="DTAC"> --DTAC--</form:option>
+                        <form:option value=""> -- Select -- </form:option>
+					    <form:option value="AIS"> AIS </form:option>
+					    <form:option value="DTAC"> DTAC </form:option>
 <%-- 					    <form:options items="${listOfInstitutionsNames}"></form:options> --%>
 					  </form:select>
                     <div class="has-error">
@@ -43,9 +45,9 @@
                 <label class="col-md-3 control-lable" for="referentTaName">หมายเลขโทรศัพท์ที่สมัครตัวแทน *</label>
                 <div class="col-md-7">
                       <form:select  path="referentTaName" class="form-control input-sm" >
-					    <form:option value="NONE"> --SELECT--</form:option>
-					    <form:option value="AIS"> --AIS--</form:option>
-					    <form:option value="DTAC"> --DTAC--</form:option>
+                        <form:option value=""> -- Select -- </form:option>
+					    <form:option value="AIS"> AIS </form:option>
+					    <form:option value="DTAC"> DTAC </form:option>
 <%-- 					    <form:options items="${listOfInstitutionsNames}"></form:options> --%>
 					  </form:select>
                     <div class="has-error">
@@ -127,7 +129,7 @@
                 <label class="col-md-3 control-lable" for="kioskStatus">สถานะตู้เติมเงิน</label>
                 <div class="col-md-7">
                       <form:select  path="kioskStatus" class="form-control input-sm" >
-              			<form:option value="NONE"> --SELECT--</form:option>
+              			<form:option value=""> --SELECT--</form:option>
 					    <form:option value="A">Active</form:option>
 					    <form:option value="I">In Active</form:option>
 					    <form:option value="L">Locked</form:option>
@@ -151,6 +153,7 @@
                 <label class="col-md-3 control-lable" for="areaTitleName">คำนำหน้าชื่อ *</label>
                 <div class="col-md-7">
                       <form:select  path="areaTitleName" class="form-control input-sm" >
+                        <form:option value=""> -- Select -- </form:option>
 					    <form:option value="10001">Active</form:option>
 					    <form:option value="10002">In Active</form:option>
 					    <form:option value="10003">Locked</form:option>
@@ -209,6 +212,7 @@
                 <label class="col-md-3 control-lable" for="kioskAreaType">ประเภทสถานที่ตั้งของตู้เติมเงิน *</label>
                 <div class="col-md-7">
                       <form:select  path="kioskAreaType" class="form-control input-sm" >
+                        <form:option value=""> -- Select -- </form:option>
 					    <form:option value="101">อาคารพาณิชย์</form:option>
 					    <form:option value="102">บ้านพักอาศัย</form:option>
 					    <form:option value="103">หอพัก</form:option>

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,16 +18,14 @@ import th.co.tac.kms.web.controller.model.MachineInfo;
  
 @Repository("machineInfoDao")
 public class MachineInfoDao extends AbstractDao { 
-	@Autowired
-	private JdbcTemplate jdbcTemplate;	
+
  
-	
 	String insertMachineInfoSQL =	" INSERT INTO kms_kiosk_machine_info(  " +
 			"    kiosk_id, ref_kiosk_id, wallet_id, location_id, kiosk_status, " +
 			"   project_code, sim_card_id, kiosk_serial_no, renter_id, vendor_id, " +
 			"   registed_date, activate_date, created_by, created_date, updated_by, " +
 			"   updated_date)" +
-			"    VALUES (?, ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?,  ?)";
+			"    VALUES (?, ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?)";
 
 	
 	
@@ -34,7 +33,7 @@ public class MachineInfoDao extends AbstractDao {
 		KeyHolder keyHolder = new GeneratedKeyHolder(); 		
 		jdbcTemplate.update(new PreparedStatementCreator() {  
 			public PreparedStatement createPreparedStatement(Connection connection)throws SQLException {  
-				PreparedStatement ps = connection.prepareStatement(insertMachineInfoSQL , Statement.RETURN_GENERATED_KEYS);   
+				PreparedStatement ps = connection.prepareStatement(insertMachineInfoSQL , new String[]{ "machine_id" });   
 				ps.setInt(1,machineInfo.getKioskId());
 				ps.setInt(2,machineInfo.getRefKioskId());
 				ps.setInt(3,machineInfo.getWalletId());
@@ -51,12 +50,12 @@ public class MachineInfoDao extends AbstractDao {
 				ps.setTimestamp(14,machineInfo.getCreateDate());
 				ps.setString(15,machineInfo.getUpdateBy());
 				ps.setTimestamp(16,machineInfo.getUpdateDate());
-			 	 			
-				return ps;  
+
+				return ps;
 				}
 			}, 	keyHolder); 	
 		Long returnid =  keyHolder.getKey().longValue();		
- 
+		log_info("ID=", returnid);
 		return returnid;
 	}
 

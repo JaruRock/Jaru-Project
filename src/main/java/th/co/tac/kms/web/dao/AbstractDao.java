@@ -11,6 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -32,6 +33,9 @@ public abstract class AbstractDao extends JdbcDaoSupport implements Serializable
 	private static final String LOG_SRVC_NAME = "[DAO] - ";
 	private Logger logger = LogManager.getLogger(this.getClass());
 
+	
+	protected JdbcTemplate jdbcTemplate;	
+	
 	@Lazy
 	@Autowired()
 	protected DataSource dataSource;
@@ -42,6 +46,7 @@ public abstract class AbstractDao extends JdbcDaoSupport implements Serializable
 	@PostConstruct
 	private void initialize() {
 		setDataSource(this.dataSource);
+		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
 	protected void log_info(String wording, Object... arguments) {
