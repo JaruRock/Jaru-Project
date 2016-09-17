@@ -13,11 +13,39 @@ import th.co.tac.kms.web.controller.model.KioskAuditReportCritiria;
 @Transactional
 public class KioskAuditReportService {
 
-	public List<KioskAuditReport> findByKioskAuditReport(KioskAuditReportCritiria kioskAuditReportCritiria) {
-		List<KioskAuditReport> kioskAuditReportList = new ArrayList<KioskAuditReport>();
+ public List<KioskAuditReport> findByKioskAuditReport(KioskAuditReportCritiria kioskAuditReportCritiria) {
+  //List<KioskAuditReport> kioskAuditReportList = new ArrayList<KioskAuditReport>();
 
-		return kioskAuditReportList;
-	}
-	
+  //return kioskAuditReportList;
+  
+  return mockFindByKioskAuditReport();
+ }
+ 
 
+ 
+ private  List<KioskAuditReport> mockFindByKioskAuditReport(){
+  
+  List<KioskAuditReport> kioskAuditReportList = new ArrayList<KioskAuditReport>();
+  
+  for(int i=0;i<20;i++){
+   KioskAuditReport tmp = new KioskAuditReport();
+   
+   tmp.setOperator("Operator"+i);
+   tmp.setNetworkMa("Network MA"+i);
+   tmp.setPhoneMa("08154563"+i);
+   tmp.setTypeMa("นิติบุคล");
+   tmp.setReferenceName("Somchai");
+   tmp.setPhonTa("09854522"+i);
+   tmp.setTypeTa("บุคคลธรรมดา");
+   tmp.setKioskId("874254"+i);
+   tmp.setKioskSerialNumber("KO34235"+i);
+   tmp.setFristName(" นายทดสอบ " );
+   
+   
+   
+   kioskAuditReportList.add(tmp);
+  }
+  
+  return kioskAuditReportList;
+ }
 }
