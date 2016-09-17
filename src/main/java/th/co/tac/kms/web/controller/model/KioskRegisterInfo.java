@@ -8,20 +8,19 @@ public class KioskRegisterInfo {
 	private String customerType;
 	private String companyName;
 	private String lastName;
-	
-//	Kiosk Location Profile
+
+	// Kiosk Location Profile
 	private String vendorName;
 	private String kioskId;
 	private String kioskStatus;
-	
-	//ข้อมูลเจ้าของพื้นที่ (แก้ไขได้)
+
+	// ข้อมูลเจ้าของพื้นที่ (แก้ไขได้)
 	private String areaTitleName;
 	private String areaFirstName;
 	private String areaLastName;
 	private String areaMobileNo;
-	
 
-//	ข้อมูลสถานที่ติดตั้งตู้เติมเงิน (แก้ไขได้)
+	// ข้อมูลสถานที่ติดตั้งตู้เติมเงิน (แก้ไขได้)
 	private String kioskAreaType;
 	private String kioskAreaAddress;
 	private String kioskAreaMoo;
@@ -32,8 +31,21 @@ public class KioskRegisterInfo {
 	private String kioskAreaTambon;
 	private String kioskAreaPostalCode;
 	private String kioskAreaRemarkAddr;
-	
-	
+
+	// Kiosk Hardware Profile
+	private String hardwareOperater;
+	private String hardwareVendor;
+	private String hardwareModel;
+	private String hardwareLatitude;
+	private String hardwareLongitude;
+	private String hardwareMobileNo;
+	private String hardwareKioskSerailNo;
+	private String hardwareMainbordSerailNo;
+	private String hardwareCoinAcceptorSerailNo;
+	private String hardwareBankAcceptorSerailNo;
+	private String hardwareRegisterDate;
+	private String hardwareFirstOpenDate;
+
 	public String getNetworkMa() {
 		return networkMa;
 	}
@@ -216,6 +228,102 @@ public class KioskRegisterInfo {
 
 	public void setKioskAreaRemarkAddr(String kioskAreaRemarkAddr) {
 		this.kioskAreaRemarkAddr = kioskAreaRemarkAddr;
+	}
+
+	public String getHardwareOperater() {
+		return hardwareOperater;
+	}
+
+	public void setHardwareOperater(String hardwareOperater) {
+		this.hardwareOperater = hardwareOperater;
+	}
+
+	public String getHardwareVendor() {
+		return hardwareVendor;
+	}
+
+	public void setHardwareVendor(String hardwareVendor) {
+		this.hardwareVendor = hardwareVendor;
+	}
+
+	public String getHardwareModel() {
+		return hardwareModel;
+	}
+
+	public void setHardwareModel(String hardwareModel) {
+		this.hardwareModel = hardwareModel;
+	}
+
+	public String getHardwareLatitude() {
+		return hardwareLatitude;
+	}
+
+	public void setHardwareLatitude(String hardwareLatitude) {
+		this.hardwareLatitude = hardwareLatitude;
+	}
+
+	public String getHardwareLongitude() {
+		return hardwareLongitude;
+	}
+
+	public void setHardwareLongitude(String hardwareLongitude) {
+		this.hardwareLongitude = hardwareLongitude;
+	}
+
+	public String getHardwareMobileNo() {
+		return hardwareMobileNo;
+	}
+
+	public void setHardwareMobileNo(String hardwareMobileNo) {
+		this.hardwareMobileNo = hardwareMobileNo;
+	}
+
+	public String getHardwareKioskSerailNo() {
+		return hardwareKioskSerailNo;
+	}
+
+	public void setHardwareKioskSerailNo(String hardwareKioskSerailNo) {
+		this.hardwareKioskSerailNo = hardwareKioskSerailNo;
+	}
+
+	public String getHardwareMainbordSerailNo() {
+		return hardwareMainbordSerailNo;
+	}
+
+	public void setHardwareMainbordSerailNo(String hardwareMainbordSerailNo) {
+		this.hardwareMainbordSerailNo = hardwareMainbordSerailNo;
+	}
+
+	public String getHardwareCoinAcceptorSerailNo() {
+		return hardwareCoinAcceptorSerailNo;
+	}
+
+	public void setHardwareCoinAcceptorSerailNo(String hardwareCoinAcceptorSerailNo) {
+		this.hardwareCoinAcceptorSerailNo = hardwareCoinAcceptorSerailNo;
+	}
+
+	public String getHardwareBankAcceptorSerailNo() {
+		return hardwareBankAcceptorSerailNo;
+	}
+
+	public void setHardwareBankAcceptorSerailNo(String hardwareBankAcceptorSerailNo) {
+		this.hardwareBankAcceptorSerailNo = hardwareBankAcceptorSerailNo;
+	}
+
+	public String getHardwareRegisterDate() {
+		return hardwareRegisterDate;
+	}
+
+	public void setHardwareRegisterDate(String hardwareRegisterDate) {
+		this.hardwareRegisterDate = hardwareRegisterDate;
+	}
+
+	public String getHardwareFirstOpenDate() {
+		return hardwareFirstOpenDate;
+	}
+
+	public void setHardwareFirstOpenDate(String hardwareFirstOpenDate) {
+		this.hardwareFirstOpenDate = hardwareFirstOpenDate;
 	}
 
 }

@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class LocationInfo {
  
 	
-	private Long locationId;
+	private Integer locationId;
 	private String longitude;
 	private String latitude;
 	private String kioskAddress;
@@ -17,14 +17,15 @@ public class LocationInfo {
 	//private Province province;
 	//private District districe;
 	//private Tambon tambon;
-	public Long getLocationId() {
-		return locationId;
-	}
-	public void setLocationId(Long locationId) {
-		this.locationId = locationId;
-	}
+	 
 	public String getLongitude() {
 		return longitude;
+	}
+	public Integer getLocationId() {
+		return locationId;
+	}
+	public void setLocationId(Integer locationId) {
+		this.locationId = locationId;
 	}
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
