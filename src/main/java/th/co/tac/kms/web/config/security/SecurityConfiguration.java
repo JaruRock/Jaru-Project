@@ -32,8 +32,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService);
-		auth.authenticationProvider(authenticationProvider());
+//		auth.userDetailsService(userDetailsService);
+//		auth.authenticationProvider(authenticationProvider());
+		
+		auth.inMemoryAuthentication()
+			.withUser("admin")
+			.password("password")
+			.authorities("ROLE_ADMIN")
+			.roles("01");
 	}
 
 	@Override
@@ -43,6 +49,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		SecurityPageConfigurationUtil.groupManagement(http);
 		
 		http.authorizeRequests()
+		.antMatchers( "/**" ).permitAll()
+		
 		.and()
 		.formLogin()
 			.loginPage("/login")
