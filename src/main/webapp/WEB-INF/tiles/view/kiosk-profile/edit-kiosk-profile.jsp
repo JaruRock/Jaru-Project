@@ -13,7 +13,7 @@
 		</div>
 	</div>
 
-	<form:form method="GET" action="" modelAttribute="kiosk"
+	<form:form method="POST" action="/kiosk-search" modelAttribute="kiosk"
 		class="form-horizontal">
 		<div class="row">
 			<div class="form-group col-md-12">

@@ -22,19 +22,19 @@ public class KioskProfileController  extends AbstractController{
 	
 	@Autowired KioskProfileService kioskprofileservice;
 	
-	@RequestMapping(value = { "/edit-kiosk-profile" }, method = RequestMethod.GET)
-	public String searchKioskaProfile(  ModelMap model) {
+	@RequestMapping(value = { "/kiosk-profile" }, method = RequestMethod.GET)
+	public String searchKioskaProfile(ModelMap model) {
 		List <KioskProfile> kioskprofile = new ArrayList<KioskProfile>();
-		//kioskprofile = kioskprofileservice.kioskProfileSearch(kiosk);
 		model.addAttribute("kiosk",new KioskProfileSearchCriterion() );
 		return "edit.kiosk.profile";
 	}
 	
-	@RequestMapping(value = { "/edit-kiosk-search" }, method = RequestMethod.GET)
-	public String searchKioskaProfileSearch(  ModelMap model) {
+	@RequestMapping(value = { "/kiosk-search" }, method = RequestMethod.POST)
+	public String searchKioskaProfileSearch( KioskProfileSearchCriterion kiosk, ModelMap model) {
 		List <KioskProfile> kioskprofile = new ArrayList<KioskProfile>();
-		//kioskprofile = kioskprofileservice.kioskProfileSearch(kiosk);
-		model.addAttribute("kiosk",new KioskProfileSearchCriterion() );
+		kioskprofile = kioskprofileservice.kioskProfileSearch(kiosk);
+		model.addAttribute("kiosk",kiosk );
+		model.addAttribute("kiosks",kioskprofile );
 		return "edit.kiosk.profile";
 	}
 	
