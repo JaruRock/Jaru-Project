@@ -5,7 +5,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="container" style="margin-top: 50px">
-
+	<div class="row">
+		<div class="form-group col-md-12">
+			<h3>
+				<label class="col-md-6 control-lable">Kiosk Movement Report</label>
+			</h3>
+		</div>
+	</div> 
 <form:form method="POST" action="${cPath}/report-movement" modelAttribute="kioskMovementCritiria" class="form-horizontal"> 
 	
 	<div class="row">

@@ -26,7 +26,7 @@
 	    	    <div class="form-group col-md-12">
 	        <label class="col-md-3 control-lable" for="number">หมายเลขโทรศัพท์ที่สมัครตัวแทน</label>
 	        <div class="col-md-4">
-	            <form:input type="text" path="networkMAName" class="form-control input-sm" />
+	            <form:input type="text" path="telphoneNo" class="form-control input-sm" />
 	        </div>
 	    </div>		
 		
@@ -93,7 +93,7 @@
                     <td>${domain.address}</td>
                    
                     <td>
-                    <a href="<c:url value='/edit-group' />" >View</a>
+                    <a href="#" >View</a>
                   
                      </td>
                     
