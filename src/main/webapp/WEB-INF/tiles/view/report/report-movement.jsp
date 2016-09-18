@@ -4,10 +4,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <div class="container" style="margin-top: 50px">
-	<div class="panel">
-	    <a href="<c:url value='/report/kiosk-movement-report-list' />" class="btn btn-primary custom-width">Kiosk Movement</a>
-	    <a href="<c:url value='/report/kiosk-shift-report-list' />" class="btn btn-primary custom-width">Kiosk Shift</a>
-    </div>
+ 
 	
 	<div class="row">
 	    <div class="form-group col-md-12">
