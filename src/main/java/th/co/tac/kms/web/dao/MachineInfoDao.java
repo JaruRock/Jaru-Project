@@ -3,11 +3,7 @@ package th.co.tac.kms.web.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -20,12 +16,11 @@ import th.co.tac.kms.web.controller.model.MachineInfo;
 public class MachineInfoDao extends AbstractDao { 
 
  
-	String insertMachineInfoSQL =	" INSERT INTO kms_kiosk_machine_info(  " +
-			"    kiosk_id, ref_kiosk_id, wallet_id, location_id, kiosk_status, " +
-			"   project_code, sim_card_id, kiosk_serial_no, renter_id, vendor_id, " +
-			"   registed_date, activate_date, created_by, created_date, updated_by, " +
-			"   updated_date)" +
-			"    VALUES (?, ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?)";
+	private static final long serialVersionUID = 1219394814890557546L;
+	
+	String insertMachineInfoSQL =	" INSERT INTO kms_kiosk_machine_info( "
+			+ "kiosk_id , vendor_id , kiosk_status , registed_date , wallet_id , renter_id , location_id)"
+			+ "values ( ? , ? , ? , ? , ? , ? , ?) ";
 
 	
 	
@@ -34,22 +29,13 @@ public class MachineInfoDao extends AbstractDao {
 		jdbcTemplate.update(new PreparedStatementCreator() {  
 			public PreparedStatement createPreparedStatement(Connection connection)throws SQLException {  
 				PreparedStatement ps = connection.prepareStatement(insertMachineInfoSQL , new String[]{ "machine_id" });   
-				ps.setInt(1,machineInfo.getKioskId());
-				ps.setInt(2,machineInfo.getRefKioskId());
-				ps.setInt(3,machineInfo.getWalletId());
-				ps.setInt(4,machineInfo.getLocationId());
-				ps.setString(5,machineInfo.getKioskStatus());
-				ps.setString(6,machineInfo.getProjectCode());
-				ps.setInt(7,machineInfo.getSimCardId());
-				ps.setString(8,machineInfo.getKioskSerialNo());
-				ps.setInt(9,machineInfo.getRenterId());
-				ps.setInt(10,machineInfo.getVendorId());
-				ps.setTimestamp(11,machineInfo.getRegistedDate());
-				ps.setTimestamp(12,machineInfo.getActivateDate());
-				ps.setString(13,machineInfo.getCreateBy());
-				ps.setTimestamp(14,machineInfo.getCreateDate());
-				ps.setString(15,machineInfo.getUpdateBy());
-				ps.setTimestamp(16,machineInfo.getUpdateDate());
+				ps.setString(1,machineInfo.getKioskId());
+				ps.setInt(2,machineInfo.getVendorId());
+				ps.setString(3,machineInfo.getKioskSerialNo());
+				ps.setTimestamp(4,machineInfo.getRegistedDate());
+				ps.setString(5,machineInfo.getWalletId().toString());
+				ps.setInt(6,machineInfo.getRenterId());
+				ps.setInt(7,machineInfo.getLocationId());
 
 				return ps;
 				}

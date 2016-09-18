@@ -29,7 +29,7 @@ public class MachineInfo implements Serializable {
 	
 	
 	private Integer machineId;
-	private Integer kioskId;
+	private String kioskId;
 	private Integer refKioskId;
 	private Integer walletId;
 	private Integer locationId;
@@ -50,12 +50,6 @@ public class MachineInfo implements Serializable {
 	}
 	public void setMachineId(Integer machineId) {
 		this.machineId = machineId;
-	}
-	public Integer getKioskId() {
-		return kioskId;
-	}
-	public void setKioskId(Integer kioskId) {
-		this.kioskId = kioskId;
 	}
 	public Integer getRefKioskId() {
 		return refKioskId;
@@ -147,6 +141,12 @@ public class MachineInfo implements Serializable {
 	}
 	public void setUpdateDate(Timestamp updateDate) {
 		this.updateDate = updateDate;
+	}
+	public String getKioskId() {
+		return kioskId;
+	}
+	public void setKioskId(String kioskId) {
+		this.kioskId = kioskId;
 	}
 
 	

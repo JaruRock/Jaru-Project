@@ -1,6 +1,6 @@
 package th.co.tac.kms.web.controller;
 
-import javax.validation.Valid;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +25,9 @@ public class KioskRegisterController extends AbstractController  {
 	@RequestMapping(value = { "/kiosk-register" }, method = RequestMethod.GET)
 	public String keyForm(@ModelAttribute KioskRegisterInfo keyform , ModelMap model) {
 		KioskRegisterInfo kmsinfo = new KioskRegisterInfo();
-		kmsinfo.setKioskId(String.format("KD-%06d", 1));
+		Random random = new Random();
+		kmsinfo.setKioskId(String.format("KD-%06d", random.nextInt(100000)));
+		kmsinfo.setPinCode("adc7f1919df8595ac054cb944aa6a470fa5884a8b272877780ac97b488cf879");
 		model.addAttribute("keyform", kmsinfo);
 		return "kiosk.register";
 	}
@@ -44,7 +46,7 @@ public class KioskRegisterController extends AbstractController  {
 		
 		//save
 		kioskRegisterService.save(keyform);
-		String successMesg = " registered successfully";
+		String successMesg = " Registered successfully";
 		model.addAttribute("success", successMesg);
 		
 		return "redirect:/kiosk-register";

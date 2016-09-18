@@ -45,6 +45,9 @@ public class KioskRegisterInfo {
 	private String hardwareBankAcceptorSerailNo;
 	private String hardwareRegisterDate;
 	private String hardwareFirstOpenDate;
+	
+	//other
+	private String pinCode;
 
 	public String getNetworkMa() {
 		return networkMa;
@@ -324,6 +327,14 @@ public class KioskRegisterInfo {
 
 	public void setHardwareFirstOpenDate(String hardwareFirstOpenDate) {
 		this.hardwareFirstOpenDate = hardwareFirstOpenDate;
+	}
+
+	public String getPinCode() {
+		return pinCode;
+	}
+
+	public void setPinCode(String pinCode) {
+		this.pinCode = pinCode;
 	}
 
 }

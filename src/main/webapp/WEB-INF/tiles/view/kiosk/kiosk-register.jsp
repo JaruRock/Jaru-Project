@@ -8,6 +8,9 @@
 	 		<div class="alert alert-success" role="alert">${param.success}</div>
 	 </c:if>
 	 <form:form method="POST" action="/kiosk-register" modelAttribute="keyform" class="form-horizontal">
+	 
+	 <form:hidden path="pinCode"/>
+	 
 	 <h4>Kiosk Profile (API from AIS)</h4>
 	 <hr>
         <div class="row">
