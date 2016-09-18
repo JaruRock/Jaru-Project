@@ -16,7 +16,7 @@ public class KmsKioskLocationInfoDao extends AbstractDao  {
 
 	private static final long serialVersionUID = -2849893285832481113L;
 
-	public Integer create(KmsKioskLocationInfo kioskLocationInfo) { 
+	public Integer create(final KmsKioskLocationInfo kioskLocationInfo) { 
 		String sql = "insert into kms_kiosk_location_info ("
 				+ " id_location_type, kiosk_address, moo, soi,road, id_province,id_district,id_tambon, postal_code,remark_address ) "
 				+ " values (?,?,?,?,?,?,?,?,?,?)";

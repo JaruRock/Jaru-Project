@@ -17,7 +17,7 @@ public class KmsWalletInfoDao extends AbstractDao {
 	private static final long serialVersionUID = 5561146655863451807L;
 
 	
-	public Integer create(KmsWalletInfo kmsWalletInfo) {
+	public Integer create(final KmsWalletInfo kmsWalletInfo) {
 		String sql = "insert into kms_wallet_info (agent_id , pin_code) values (?, ?) ";
 		KeyHolder keyHolder = new GeneratedKeyHolder(); 		
 		jdbcTemplate.update(new PreparedStatementCreator() {  
