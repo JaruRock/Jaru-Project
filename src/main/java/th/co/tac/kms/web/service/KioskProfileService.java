@@ -26,6 +26,19 @@ public class KioskProfileService {
 		profile.setKioskId("7");
 		
 		kioskprofile.add(profile);
+		profile = new KioskProfile();
+		profile.setAmphur("เมือง");
+		profile.setProvince("พะเยา");
+		profile.setDistrict("แม่กา");
+		profile.setKioskSerialNo("11232");
+		profile.setKioskStatus("Active");
+		profile.setName("rob");
+		profile.setLastName("f");
+		profile.setTelephoneNo("099324093");
+		profile.setNameNetworkMA("Tone");
+		profile.setKioskId("1");
+		
+		kioskprofile.add(profile);
 		
 		return kioskprofile;
 	}

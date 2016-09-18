@@ -3,7 +3,7 @@ package th.co.tac.kms.web.dao.model;
 public class QueryCustomerBalance {
 	
 
-	private String No;
+	private String no;
 	private String dateAction;
 	private String telephoneNoAndOperator;
 	private String kioskOwner;
@@ -21,11 +21,12 @@ public class QueryCustomerBalance {
 	private String province;
 	private String amphur;
 	private String district;
+	
 	public String getNo() {
-		return No;
+		return no;
 	}
 	public void setNo(String no) {
-		No = no;
+		this.no = no;
 	}
 	public String getDateAction() {
 		return dateAction;
@@ -129,6 +130,8 @@ public class QueryCustomerBalance {
 	public void setDistrict(String district) {
 		this.district = district;
 	}
+	
+	
 	
 
 }
