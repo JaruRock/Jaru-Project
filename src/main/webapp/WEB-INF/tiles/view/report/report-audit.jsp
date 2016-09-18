@@ -176,25 +176,25 @@
 <!--                         <a href="" class="btn btn-default custom-width">Export</a> -->
 <!--             </div> -->
 <!--         </div> -->
-<!--          <div class="row">  -->
-<!--        <div class="form-group col-md-12 text-center"> -->
-<!-- 	    	<a href="/report-audit-search" class="btn btn-primary custom-width">ค้นหา</a> -->
-<!-- 	    	<a href="#" class="btn btn-primary custom-width">ยกเลิก</a> -->
-<!-- 	    	<a href="#" class="btn btn-primary custom-width">Export</a> -->
-<!-- 	    </div> -->
-<!-- 	      </div>  -->
+         <div class="row"> 
+       <div class="form-group col-md-12 text-center">
+	    	<a href="/report-audit-search" class="btn btn-primary custom-width">ค้นหา</a>
+	    	<a href="#" class="btn btn-primary custom-width">ยกเลิก</a>
+	    	<a href="#" class="btn btn-primary custom-width">Export</a>
+	    </div>
+	      </div> 
 	      
-	      		<div class="row">
-					<div class="col-lg-12">
-						<div class="form-group "> 
-							<div class="col-lg-12 text-center">
-								<button type="reset" class="btn btn-default"> &nbsp;Clear <i class="fa fa-refresh"></i></button>&nbsp;&nbsp;
-								<button type="button" class="btn btn-primary"  onclick="location.href='/report-audit-search'" >Search <i class="fa fa-search"></i></button>&nbsp;&nbsp;
-								<button type="button" class="btn btn-warning" disabled>Export <i class="fa fa-file-excel-o"></i></button>
-							</div>
-						</div>
-					</div>
-				</div>
+<!-- 	      		<div class="row"> -->
+<!-- 					<div class="col-lg-12"> -->
+<!-- 						<div class="form-group ">  -->
+<!-- 							<div class="col-lg-12 text-center"> -->
+<!-- 								<button type="reset" class="btn btn-default"> &nbsp;Clear <i class="fa fa-refresh"></i></button>&nbsp;&nbsp; -->
+<!-- 								<button type="button" class="btn btn-primary"  onclick="location.href='/report-audit-search'" >Search <i class="fa fa-search"></i></button>&nbsp;&nbsp; -->
+<!-- 								<button type="button" class="btn btn-warning" disabled>Export <i class="fa fa-file-excel-o"></i></button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 				
     </form:form>
     
