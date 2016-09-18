@@ -178,7 +178,7 @@
 <!--         </div> -->
          <div class="row"> 
        <div class="form-group col-md-12 text-center">
-	    	<a href="/report-audit-search" class="btn btn-primary custom-width">ค้นหา</a>
+	    	<a href="${cPath}/report-audit-search" class="btn btn-primary custom-width">ค้นหา</a>
 	    	<a href="#" class="btn btn-primary custom-width">ยกเลิก</a>
 	    	<a href="#" class="btn btn-primary custom-width">Export</a>
 	    </div>

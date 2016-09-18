@@ -169,7 +169,7 @@
         </div>
         <div class="row">
             <div class="form-actions text-center">
-                       	<a href="/report-alarm-search" class="btn btn-primary custom-width">ค้นหา</a>
+                       	<a href="${cPath}/report-alarm-search" class="btn btn-primary custom-width">ค้นหา</a>
                         <a href="" class="btn btn-primary custom-width">ยกเลิก</a>
                         <a href="" class="btn btn-primary custom-width">Export</a>
             </div>
