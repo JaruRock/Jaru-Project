@@ -3,88 +3,119 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
+<%-- <link rel="stylesheet" href="${cPath}/resources/css/datepicker.css"> --%>
+<link rel="stylesheet" href="${cPath}/resources/css/dataTables.bootstrap.min.css">
+<%-- <script src="${cPath}/resources/js/bootstrap-datepicker.js"></script> --%>
+<script src="${cPath}/resources/js/jquery.dataTables.min.js"></script>
+<script src="${cPath}/resources/js/dataTables.bootstrap.min.js"></script>
+	
+	
 <div class="container">
 
 		<div class="page-header">
 			<div class="row">
 				<div class="col-lg-12">
-					<h3>รายงานตู้เติมเงิน</h3>
+					<h1>รายงานตู้เติมเงิน</h1>
 				</div>
 			</div>
 		</div>
 		
 		<div class="row">
 		
-		  <fieldset><div class=" ">
-		   <form class="form-horizontal">  
+		  <fieldset  >
+		  
 		   <div class="col-lg-12">
-					<h3>ค้นหาตู้เติมเงิน</h3>
-				</div>
+	            <div class=" "> 
+	              <h3>ค้นหาตู้เติมเงิน</h3>
+	            </div>
+           </div>
+           
+<!-- 		  <legend class="kms-legend">ค้นหาตู้เติมเงิน</legend> -->
+		   <form class="form-horizontal well">  
 	          <div class="col-lg-6">
                   <div class="form-group">
-                    <label for="name" class="col-lg-4 control-label">Host ID</label>
+                    <label for="name" class="col-lg-5 control-label">Operator</label>
                     <div class="col-lg-6">
-                      <input type="text" class="form-control" id="name"  >
+<!--                       <input type="text" class="form-control" id="name"  > -->
+                      <div class="radio" style="float: left; margin:0 10px;">
+                        <label><input type="radio" name="operator"  value="AWN" >AWN</label>
+                      </div>
+                      <div class="radio" style="float: left; margin:0 10px;">
+                         <label><input type="radio" name="operator"  value="DTAC" >DTAC</label>
+                      </div>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="" class="col-lg-4 control-label">Owner Name</label>
+                    <label for="" class="col-lg-5 control-label">TA Name </label>
                     <div class="col-lg-6">
-                      <input type="text" class="form-control" id=""  >
+                      <input type="text" class="form-control" id="" list="TAName" >
+                      <datalist id="TAName">
+						<option value="Something"></option>
+						<option value="Something Else"></option>
+						<option value="Another One"></option>
+						<option value="Alpha"></option>
+						<option value="Bravo"></option>
+					</datalist>
                     </div>
                   </div>
-                   <div class="form-group">
-                    <label for="" class="col-lg-4 control-label">Owner Type</label>
+                  <div class="form-group">
+                    <label for="" class="col-lg-5 control-label"> อำเภอ</label>
                     <div class="col-lg-6">
-                       <select class="form-control" id="ownerType">
+                       <select class="form-control" id="">
                        	<option value="">All</option>
                       </select>
                     </div>
                   </div>
             	 <div class="form-group">
-                    <label for="" class="col-lg-4 control-label">Assigned Date Start</label>
+                    <label for="" class="col-lg-5 control-label">รหัสตู้เติมเงิน (Kiosk ID)</label>
                     <div class="col-lg-6">
-			                <div class='input-group date' id='Assigned'>
-			                    <input type='text' class="form-control" />
-			                    <span class="input-group-addon">
-			                        <span class="glyphicon glyphicon-calendar"></span>
-			                    </span>
-			                </div>
+                   		 <input type="text" class="form-control" id=""  >
+                    </div>
+                  </div>
+            	 <div class="form-group">
+                    <label for="" class="col-lg-5 control-label">สถานะตู้เติมเงินผูกกับ Wallet</label>
+                    <div class="col-lg-6">
+                       <select class="form-control" id="">
+                       	<option value="">All</option>
+                      </select>
                     </div>
                   </div>
 	          </div>
 	          <div class="col-lg-6">
 	                  <div class="form-group">
-	                    <label for="select" class="col-lg-4 control-label">Asset Type</label>
+	                  		<label for="" class="col-lg-4 control-label required">ชื่อ Network MA </label>
+		                    <div class="col-lg-6">
+		                      <input type="text" class="form-control" required="required" id="" list="Network" >
+		                      <datalist id="Network">
+								<option value="Something"></option>
+								<option value="Something Else"></option>
+								<option value="Another One"></option>
+								<option value="Alpha"></option>
+								<option value="Bravo"></option>
+							</datalist>
+		                    </div>
+	                  </div>
+	                 <div class="form-group">
+	                    <label for="" class="col-lg-4 control-label"> จังหวัด</label>
 	                    <div class="col-lg-6">
-	                      <select class="form-control" id="assetType">
-	                      	<option value="">All</option>
+	                       <select class="form-control" id="">
+	                       	<option value="">All</option>
 	                      </select>
 	                    </div>
 	                  </div>
-	                 <div class="form-group">
-	                    <label for="" class="col-lg-4 control-label">Mobile No.</label>
-	                    <div class="col-lg-6">
-	                      <input type="number" class="form-control" id=""  >
-	                    </div>
-	                  </div>
 	                  <div class="form-group">
-	                    <label for="" class="col-lg-4 control-label">Gender</label>
+	                    <label for="" class="col-lg-4 control-label"> ตำบล</label>
 	                    <div class="col-lg-6">
-	                       <select class="form-control" id="gender">
-	                        <option value="">All</option>
+	                       <select class="form-control" id="">
+	                       	<option value="">All</option>
 	                      </select>
 	                    </div>
 	                  </div>
 	                   <div class="form-group">
-	                    <label for="" class="col-lg-4 control-label">Assigned Date Finish</label>
+	                    <label for="" class="col-lg-4 control-label">หมายเลขเครื่องตู้เติมเงิน (Kiosk Serial Number)</label>
 	                    <div class="col-lg-6">
-	                       <div class='input-group date' id='Assigned'>
-			                    <input type='text' class="form-control" />
-			                    <span class="input-group-addon">
-			                        <span class="glyphicon glyphicon-calendar"></span>
-			                    </span>
-			                </div>
+	                       <input type="text" class="form-control" id=""  >
 	                    </div>
 	                  </div>
 	                
@@ -95,15 +126,16 @@
 					<div class="col-lg-12">
 						<div class="form-group "> 
 							<div class="col-lg-12 text-center">
-								<button type="reset" class="btn btn-default"> &nbsp;Clear <i class="fa fa-refresh"></i></button>&nbsp;&nbsp;
 								<button type="button" class="btn btn-primary">Search <i class="fa fa-search"></i></button>&nbsp;&nbsp;
-								<button type="button" class="btn btn-warning" disabled>Export <i class="fa fa-file-excel-o"></i></button>
+								<button type="reset" class="btn btn-default"> Cancel <i class="fa fa-ban"></i></button>&nbsp;&nbsp;
+								<button type="button" class="btn btn-warning" disabled>Export into Excel <i class="fa fa-file-excel-o"></i></button>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				</form></div>
+				</form>
+<!-- 				</div> -->
             </fieldset>
             
         </div>
@@ -113,59 +145,58 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <div class="page-header"> 
-              <h3  >Result</h3>
+            <div class=" "> 
+              <h3>ข้อมูลตู้เติมเงิน</h3>
             </div>
 
             <div class="bs-component">
-              <table class="table table-striped " id="result-table" cellspacing="0" width="100%">
+              <table class="table table-striped" id="result-table" cellspacing="0" width="350%">
                 <thead>
-                  <tr  >
-					<th class="text-center">Host ID </th>					 
-					<th class="text-center">Asset Type</th>
-					<th class="text-center">Status</th>
-					<th class="text-center">S/N</th>
-					<th class="text-center">S/N2</th>
-					<th class="text-center">Brand</th>
-					<th class="text-center">Models</th>
-					<th class="text-center">Acquired </th>
-					<th class="text-center">Warranty Exp.</th>
-					<th class="text-center">Owner</th>
-					<th class="text-center">Own. Type   </th>
-					<th class="text-center">Mobile</th>
-					<th class="text-center">Assigned</th>
-					<th class="text-center">Finished</th>
+                  <tr> 				 
+						<th class="text-center">No.</th>
+						<th class="text-center">Operator</th>
+						<th class="text-center">ชื่อ Network MA</th>
+						<th class="text-center">หมายเลขโทรศัพท์ที่สมัครตัวแทน MA</th>
+						<th class="text-center">ประเภทสมาชิก MA</th>
+						<th class="text-center">ชื่อ Reference name for TA</th>
+						<th class="text-center">หมายเลขโทรศัพท์ที่สมัครตัวแทน TA</th>
+						<th class="text-center">ประเภทสมาชิก TA</th>
+						<th class="text-center">รหัสตู้เติมเงิน</th>
+						<th class="text-center">หมายเลขเครื่องตู้เติมเงิน</th>
+						<th class="text-center">ชื่อ</th>
+						<th class="text-center">นามสกุล</th>
+						<th class="text-center">หมายเลขโทรศัพท์เคลื่อนที่ที่ติดต่อได้</th>
+						<th class="text-center">ประเภทสถานที่ตั้งตู้เติมเงิน</th>
+						<th class="text-center">เลขที่</th>
+						<th class="text-center">หมู่ที่</th>
+						<th class="text-center">ซอย</th>
+						<th class="text-center">ถนน</th>
+						<th class="text-center">จังหวัด</th>
+						<th class="text-center">อำเภอ</th>
+						<th class="text-center">ตำบล</th>
+						<th class="text-center">รหัสไปรษณีย์</th>
+						<th class="text-center">ชื่อ Vendor</th>
+						<th class="text-center">ชื่อ Model</th>
+						<th class="text-center">ละติจูด</th>
+						<th class="text-center">ลองจิจูด</th>
+						<th class="text-center">เบอร์โทรศัพท์ที่ใช้เชื่อมต่อ</th>
+						<th class="text-center">Mainboard Serial No.</th>
+						<th class="text-center">Coin Acceptor Serial No.</th>
+						<th class="text-center">Bank Acceptor Serial No.</th>
+						<th class="text-center">วันที่ลงทะเบียนตู้เติมเงิน</th>
+						<th class="text-center">วันที่มีการเปิดใช้งานครั้งแรก</th>
+						<th class="text-center">สถานะตู้เติมเงิน</th>
                   </tr>
                 </thead>
-                <tbody>
-<!--                   <tr> -->
-<!--                     <td><a>Host Id  </a> </td> -->
-<!--                     <td>Column  </td> -->
-<!--                     <td>Column  </td> -->
-<!--                     <td>Column  </td> -->
-<!--                     <td>Column  </td> -->
-<!--                     <td>Column  </td> -->
-<!--                     <td>Column  </td> -->
-<!--                     <td>Column  </td> -->
-<!--                     <td>Column  </td> -->
-<!--                     <td>Column  </td> -->
-<!--                     <td>Column  </td> -->
-<!--                   </tr> -->
-                </tbody>
+<!--                 <tbody> -->
+<!--                 </tbody> -->
               </table> 
             </div><!-- /example -->
           </div>
         </div>
       </div>
 		
-		
-		<hr>
-		
-		
 	</div>
-	
-	
-	
 	
  <script>
  /* 
@@ -188,34 +219,37 @@
 	
 	$(document).ready(function() {
 	
-		/* $('.date').datepicker();
+// 		$('.date').datepicker();
 		
 	    $('#result-table').DataTable({
+	   		"paging":  false,
 	    	"searching": false,
-   			 "ordering": false,
-   			 "ajax": "${cPath}/resources/json/data.json",
-   			 "columns": [
-	            { "data": "name",
-			        "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-			            $(nTd).html("<a href='#"+oData.name+"'>"+oData.name+"</a>");
-			        } 
-	            },
-	            { "data": "position" },
-	            { "data": "office" },
-	            { "data": "extn" },
-	            { "data": "start_date" },
-	            { "data": "salary" },
-	            { "data": "name" },
-	            { "data": "position" },
-	            { "data": "office" },
-	            { "data": "extn" },
-	            { "data": "extn" },
-	            { "data": "start_date" },
-	            { "data": "extn" },
-	            { "data": "salary" }
-       		 ]
+   			"ordering": false,
+	        "scrollY": true,
+	        "scrollX": true
+//    			 "ajax": "${cPath}/resources/json/data.json",
+//    			 "columns": [
+// 	            { "data": "name",
+// 			        "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+// 			            $(nTd).html("<a href='#"+oData.name+"'>"+oData.name+"</a>");
+// 			        } 
+// 	            },
+// 	            { "data": "position" },
+// 	            { "data": "office" },
+// 	            { "data": "extn" },
+// 	            { "data": "start_date" },
+// 	            { "data": "salary" },
+// 	            { "data": "name" },
+// 	            { "data": "position" },
+// 	            { "data": "office" },
+// 	            { "data": "extn" },
+// 	            { "data": "extn" },
+// 	            { "data": "start_date" },
+// 	            { "data": "extn" },
+// 	            { "data": "salary" }
+//        		 ]
 	    
-	    }); */
+	    }); 
 	});
 	
 </script>
