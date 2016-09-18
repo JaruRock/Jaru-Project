@@ -11,22 +11,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import th.co.tac.kms.web.controller.model.KioskMovement;
+import th.co.tac.kms.web.controller.model.KioskMovementCritiria;
 
 @Controller
 @RequestMapping("/")
-public class KioskMovementReportController {
-	
+public class KioskMovementReportController {	
 	@ModelAttribute("navClassActiveReport")
 	public String menuActive() {
 		return "active"; // TODO: active navigate menu
 	}
 	
 	@RequestMapping(value = { "/report-movement" }, method = RequestMethod.GET)
-	public String kioskMovementReportList(ModelMap model) {
+	public String kioskMovementReportListGet(ModelMap model) {	 
+		KioskMovementCritiria kioskMovementCritiria = new KioskMovementCritiria(); 
+		model.addAttribute("kioskMovementCritiria", kioskMovementCritiria);
+		return "report.movement";
+	}
+	
+	@RequestMapping(value = { "/report-movement" }, method = RequestMethod.POST)
+	public String kioskMovementReportListPost(KioskMovementCritiria criteria,ModelMap model) {
 		List<KioskMovement> kioskMovementList = new ArrayList<KioskMovement>();
 		
 		KioskMovement kioskMovement = new KioskMovement();
 
+		System.out.println(" kioskMovementList Start ");
 		kioskMovement.setNo("1");//No
 		kioskMovement.setTransactionDate("9 7 2015 13:50");//วัน-เวลาที่ทำรายการ
 		kioskMovement.setKioskId("89-PHP Fl.21");//เลขที่เครื่อง KIOSK
@@ -44,9 +52,13 @@ public class KioskMovementReportController {
 		kioskMovement.setAddedCreditAmount(new BigDecimal("4"));//Credit เพิ่ม
 		kioskMovement.setMovedCreditAmount(new BigDecimal("4"));//Credit ยกไป
 		kioskMovement.setResult("Success");//Result
-
+		
+		kioskMovementList.add(kioskMovement);
 		model.addAttribute("kioskMovementList", kioskMovementList);
+		
+		System.out.println(" kioskMovementList Start ");
 		return "report.movement";
 	}
+	
 	
 }
