@@ -61,7 +61,7 @@
 			</div>
 		</div>
 
-ลำดับที่	Shift ID	วันที่เปิด Shift	วันที่ปิด Shift	หมายเลขโทรศัพท์มือถือ	Kiosk ID	สถานที่ตั้ง	Action
+ 
 
 		<div class="bs-component">
 			<table class="table table-striped">
