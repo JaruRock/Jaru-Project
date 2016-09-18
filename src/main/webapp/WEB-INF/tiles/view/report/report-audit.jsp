@@ -4,20 +4,33 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<div class="container" style="margin-top: 50px; width: 800px;">
-    <div class="panel">
-	    <h3>Kiosk Audit Report</h3>
-	    <p>ค้นหาตู้เติมเงิน</p>
-	</div>
+<div class="container" >
+
+		<div class="page-header">
+			<div class="row">
+				<div class="col-lg-12">
+					<h3>Kiosk Audit Report</h3>
+					<p>ค้นหาตู้เติมเงิน</p>
+				</div>
+			</div>
+		</div>
+		
+
   <form:form method="POST" action="/kiosk-audit-report" modelAttribute="kioskAuditReportCritiria" class="form-horizontal">
   
         
         <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="firstName">From Date</label>
-                <div class="col-md-7">
+                <div class="col-md-4">
+<div class='input-group date' id='Assigned'>
                 	<form:input type="text" path="fromDate" id="fromDate" class="form-control input-sm"/>
-
+                		<span class="input-group-addon">
+			                  <span class="glyphicon glyphicon-calendar">
+			                        
+			                   </span>
+			             </span>
+</div>
                 </div>
             </div>
         </div>
@@ -25,9 +38,15 @@
         <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="lastName">To Date</label>
-                <div class="col-md-7">
+                <div class="col-md-4">
+<div class='input-group date' id='Assigned'>
                 	<form:input type="text" path="toDate" id="toDate" class="form-control input-sm"/>
-              
+              	<span class="input-group-addon">
+			                  <span class="glyphicon glyphicon-calendar">
+			                        
+			                   </span>
+			             </span>
+</div>
                 </div>
             </div>
         </div>
@@ -35,7 +54,7 @@
         <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="lastName">Operator</label>
-                <div class="col-md-7">
+                <div class="col-md-4">
                 <form:select  path="operator" class="form-control input-sm" >
 			         <form:option value="101">ALL</form:option>
 			         <form:option value="102">Operator1</form:option>
@@ -49,7 +68,7 @@
          <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="lastName">ชื่อ Network MA *</label>
-                <div class="col-md-7" >
+                <div class="col-md-4">
                 
                 <form:select  path="networkMa" class="form-control input-sm" >
 			         <form:option value="101">ALL</form:option>
@@ -65,7 +84,7 @@
          <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="lastName">ชื่อ Network TA *</label>
-                <div class="col-md-7" >
+                <div class="col-md-4">
                 <form:select  path="netWorkTa" class="form-control input-sm" >
 			         <form:option value="101">ALL</form:option>
 			         <form:option value="102">Network TA1</form:option>
@@ -79,7 +98,7 @@
          <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="lastName">จังหวัด</label>
-                <div class="col-md-7" >
+                <div class="col-md-4">
                 <form:select  path="province" class="form-control input-sm" >
 			         <form:option value="101">ALL</form:option>
 			         <form:option value="102">จังหวัด 1</form:option>
@@ -93,7 +112,7 @@
                <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="lastName">อำเภอ</label>
-                <div class="col-md-7" >
+                <div class="col-md-4">
                <form:select  path="district" class="form-control input-sm" >
 			         <form:option value="101">ALL</form:option>
 			         <form:option value="102">อำเภอ 1</form:option>
@@ -106,7 +125,7 @@
                  <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="lastName">ตำบล</label>
-                <div class="col-md-7" >
+                <div class="col-md-4">
                <form:select  path="subDistri" class="form-control input-sm" >
 			         <form:option value="101">ALL</form:option>
 			         <form:option value="102">ตำบล 1</form:option>
@@ -119,7 +138,7 @@
                  <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="lastName">รหัสตู้เติมเงิน (Kiosk ID)</label>
-                <div class="col-md-7">
+                <div class="col-md-4">
                     <form:input type="text" path="kioskId" id="kioskId" class="form-control input-sm"/>
                 </div>
             </div>
@@ -127,7 +146,7 @@
         <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="lastName">หมายเลขเครื่องตู้เติมเงิน (Kiosk Serial Number)</label>
-                <div class="col-md-7">
+                <div class="col-md-4">
                     <form:input type="text" path="kioskSerialNumber" id="kioskSerialNumber" class="form-control input-sm"/>
                 </div>
             </div>
@@ -136,32 +155,58 @@
       <div class="row">
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="lastName">สถานะตู้เติมเงิน</label>
-                <div class="col-md-7">
+                <div class="col-md-4">
                 
-<%--                 <form:select  path="statusKiosk" class="form-control input-sm" > --%>
-<%-- 			         <form:option value="101">ALL</form:option> --%>
-<%-- 			         <form:option value="102">Active</form:option> --%>
-<%-- 			         <form:option value="103">Inactive</form:option> --%>
-<%-- 			         <form:option value="104">TBC</form:option> --%>
+                <form:select  path="statusKiosk" class="form-control input-sm" >
+			         <form:option value="101">ALL</form:option>
+			         <form:option value="102">Active</form:option>
+			         <form:option value="103">Inactive</form:option>
+			         <form:option value="104">TBC</form:option>
 
-<%-- 			    </form:select> --%>
+			    </form:select>
 
                 </div>
             </div>
         </div>
  
-        <div class="row">
-            <div class="form-actions floatRight">
-                       	<a href="/report-audit-search" class="btn btn-default custom-width">ค้นหา</a>
-                        <a href="" class="btn btn-default custom-width">ยกเลิก</a>
-                        <a href="" class="btn btn-default custom-width">Export</a>
-            </div>
-        </div>
+<!--         <div class="row"> -->
+<!--             <div class="form-actions floatRight"> -->
+<!--                        	<a href="/report-audit-search" class="btn btn-default custom-width">ค้นหา</a> -->
+<!--                         <a href="" class="btn btn-default custom-width">ยกเลิก</a> -->
+<!--                         <a href="" class="btn btn-default custom-width">Export</a> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--          <div class="row">  -->
+<!--        <div class="form-group col-md-12 text-center"> -->
+<!-- 	    	<a href="/report-audit-search" class="btn btn-primary custom-width">ค้นหา</a> -->
+<!-- 	    	<a href="#" class="btn btn-primary custom-width">ยกเลิก</a> -->
+<!-- 	    	<a href="#" class="btn btn-primary custom-width">Export</a> -->
+<!-- 	    </div> -->
+<!-- 	      </div>  -->
+	      
+	      		<div class="row">
+					<div class="col-lg-12">
+						<div class="form-group "> 
+							<div class="col-lg-12 text-center">
+								<button type="reset" class="btn btn-default"> &nbsp;Clear <i class="fa fa-refresh"></i></button>&nbsp;&nbsp;
+								<button type="button" class="btn btn-primary"  onclick="location.href='/report-audit-search'" >Search <i class="fa fa-search"></i></button>&nbsp;&nbsp;
+								<button type="button" class="btn btn-warning" disabled>Export <i class="fa fa-file-excel-o"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
     </form:form>
     
-    
- 
-        <table class="table table-hover table-bordered">
+    <div class="bs-docs-section">
+
+        <div class="row">
+          <div class="col-lg-12">
+ 			<div class="page-header"> 
+              <h3  >Result</h3>
+            </div>
+ 			<div class="bs-component">
+       			 <table class="table table-striped " id="result-table" cellspacing="0" width="100%" >
             <thead>
                 <tr>
                     <th>No.</th>
@@ -253,5 +298,8 @@
           		</c:forEach>
             </tbody>
         </table>
-
+</div>
+</div>
+</div>
+</div>
 </div>
