@@ -1,5 +1,7 @@
 package th.co.tac.kms.web.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,21 +24,23 @@ public class KioskRegisterController extends AbstractController  {
 	
 	@RequestMapping(value = { "/kiosk-register" }, method = RequestMethod.GET)
 	public String keyForm(@ModelAttribute KioskRegisterInfo keyform , ModelMap model) {
-		model.addAttribute("keyform",  new KioskRegisterInfo());
+		KioskRegisterInfo kmsinfo = new KioskRegisterInfo();
+		kmsinfo.setKioskId(String.format("KD-%06d", 1));
+		model.addAttribute("keyform", kmsinfo);
 		return "kiosk.register";
 	}
 	
 	
 
 	@RequestMapping(value = { "/kiosk-register" }, method = RequestMethod.POST)
-	public String saveForm(@ModelAttribute KioskRegisterInfo keyform , ModelMap model, BindingResult result) {
+	public String saveForm(@ModelAttribute("keyform") KioskRegisterInfo keyform , ModelMap model, BindingResult result) {
 		
 		kioskRegisterService.validate(keyform,result);
 		model.addAttribute("keyform",  keyform);
 		
-//		if(result.hasErrors()){
-//			return "kiosk.register";
-//		}
+		if(result.hasErrors()){
+			return "kiosk.register";
+		}
 		
 		//save
 		kioskRegisterService.save(keyform);

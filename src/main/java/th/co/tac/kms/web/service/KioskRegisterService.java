@@ -46,7 +46,7 @@ public class KioskRegisterService {
 	private void checkEmptyFeild(String fieldName, String value, BindingResult result) {
 		if (StringUtils.isEmpty(value) || value.trim().length() == 0) {
 			String message = messageSource.getMessage("message.field.require", new String[] { fieldName },	Locale.getDefault());
-			FieldError usernameError = new FieldError("keyform", fieldName, message);
+			FieldError usernameError = new FieldError(fieldName, fieldName, message);
 			result.addError(usernameError);
 		}
 	}
