@@ -12,7 +12,6 @@ import th.co.tac.kms.web.controller.model.KioskAuditReport;
 import th.co.tac.kms.web.controller.model.KioskAuditReportCritiria;
 
 @Service("kioskAuditReportService")
-@Transactional
 public class KioskAuditReportService {
 
 	 public List<KioskAuditReport> findByKioskAuditReport(KioskAuditReportCritiria kioskAuditReportCritiria) {
