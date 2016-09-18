@@ -107,7 +107,10 @@
             <div class="form-group col-md-12">
                 <label class="col-md-3 control-lable" for="vendorName">vendor (เพิ่ม)</label>
                 <div class="col-md-7">
-					 <form:input type="text" path="vendorName" class="form-control input-sm" />
+					  <form:select  path="vendorName" class="form-control input-sm" >
+                        <form:option value=""> -- Select -- </form:option>
+					    <form:option value="100"> Vendor A </form:option>
+					  </form:select>
                     <div class="has-error">
                         <form:errors path="vendorName" class="help-inline"/>
                     </div>

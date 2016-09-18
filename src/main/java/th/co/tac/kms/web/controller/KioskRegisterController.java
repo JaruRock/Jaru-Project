@@ -1,5 +1,7 @@
 package th.co.tac.kms.web.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class KioskRegisterController extends AbstractController  {
 		Random random = new Random();
 		kmsinfo.setKioskId(String.format("KD-%06d", random.nextInt(100000)));
 		kmsinfo.setPinCode("adc7f1919df8595ac054cb944aa6a470fa5884a8b272877780ac97b488cf879");
+		
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		kmsinfo.setHardwareRegisterDate(df.format(new Date()));
 		model.addAttribute("keyform", kmsinfo);
 		return "kiosk.register";
 	}
