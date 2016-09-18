@@ -18,7 +18,7 @@
 		class="form-horizontal">
 		<div class="row">
 			<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="">ชื่อ NetworkMA</label>
+				<label class="col-md-3 control-lable" for="">ชื่อ Network MA</label>
 				<div class="col-md-5">
 					<form:input type="text" path="nameNetworkMA" id="nameNetworkMA"
 						class="form-control input-sm" />
@@ -44,7 +44,7 @@
 
 		<div class="row">
 			<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="kioskId">รหัสตู้เติมเงิน (KioskID)</label>
+				<label class="col-md-3 control-lable" for="kioskId">รหัสตู้เติมเงิน (Kiosk ID)</label>
 				<div class="col-md-5">
 					<form:input type="text" path="kioskId" id="kioskId"
 						class="form-control input-sm" />
@@ -54,7 +54,7 @@
 
 		<div class="row">
 			<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="kioskSerialNo">หมายเลขเครื่องตู้เติมเงิน (KioskSerialNumber)</label>
+				<label class="col-md-3 control-lable" for="kioskSerialNo">หมายเลขเครื่องตู้เติมเงิน (Kiosk Serial Number)</label>
 				<div class="col-md-5">
 					<form:input type="password" path="kioskSerialNo" id="kioskSerialNo"
 						class="form-control input-sm" />
@@ -64,7 +64,7 @@
 
 		<div class="row">
 			<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="kioskStatus">สถานะตู้เติมเงิน (KioskStatus)</label>
+				<label class="col-md-3 control-lable" for="kioskStatus">สถานะตู้เติมเงิน (Kiosk Status)</label>
 				<div class="col-md-5">
 					<form:select path="kioskStatus" class="form-control input-sm">
 						<form:option value="101">All</form:option>
@@ -92,7 +92,7 @@
 				<thead>
 					<tr>
 						<th>No.</th>
-						<th>ชื่อ NetworkMA</th>
+						<th>ชื่อ Network MA</th>
 						<th>หมายเลขโทรศัพท์ที่สมัครตัวแทน</th>
 						<th>ชื่อขนามสกุล TA</th>
 						<th>TA Reference Name</th>
