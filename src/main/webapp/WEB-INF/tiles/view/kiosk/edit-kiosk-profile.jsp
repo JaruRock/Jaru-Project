@@ -105,11 +105,9 @@
 						<button type="submit" class="btn btn-primary">
 							Search <i class="fa fa-search"></i>
 						</button>
-						&nbsp;&nbsp;
-						<button type="reset" class="btn btn-default">
-							&nbsp;Clear <i class="fa fa-refresh"></i>
-						</button>
-						&nbsp;&nbsp;
+						<a href="<c:url value='/welcome' />" class="btn btn-default">
+                        	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+                        </a>
 					</div>
 				</div>
 			</div>
@@ -160,8 +158,8 @@
 									<td nowrap>${kiosk1.amphur}</td>
 									<td nowrap>${kiosk1.district}</td>
 									<td nowrap>${kiosk.kioskStatus}</td>
-									<td nowrap><a href="<c:url value='/edit-group' />">View</a> <a
-										href="<c:url value='/edit-group' />">Edit</a></td>
+									<td nowrap><a href="<c:url value='/kiosk-register' />">View</a> <a
+										href="<c:url value='/kiosk-register' />">Edit</a></td>
 
 								</tr>
 							</c:forEach>

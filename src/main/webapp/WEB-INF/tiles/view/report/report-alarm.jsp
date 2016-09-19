@@ -197,18 +197,18 @@
 			</div>
 			<div class="row">
 				<div class="form-actions text-center">
-					<a href="${cPath}/report-alarm-search"><button type="button" class="btn btn-primary">
-						ค้นหา <i class="fa fa-search"></i>
-					</button></a>
-					&nbsp;&nbsp;
-					<button type="reset" class="btn btn-default">
-						ยกเลิก <i class="fa fa-ban"></i>
-					</button>
-					&nbsp;&nbsp;
+					<a href="${cPath}/report-alarm-search"><button type="button"
+							class="btn btn-primary">
+							Search <i class="fa fa-search"></i>
+						</button>
+					</a>
+					<a href="<c:url value='/welcome' />" class="btn btn-default">
+                        	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+                        </a>
 					<button type="button" class="btn btn-warning" disabled>
 						Export <i class="fa fa-file-excel-o"></i>
 					</button>
-					
+
 				</div>
 			</div>
 		</div>
@@ -263,8 +263,8 @@
 								<td nowrap>${kioskAlarm.dateTimeStart}</td>
 								<td nowrap>${kioskAlarm.dateTimeClear}</td>
 								<td nowrap>${kioskAlarm.operator}</td>
-								<td nowrap><a id="action-button" href="#" data-toggle="modal"
-									data-target=".bs-example-modal-lg">${kioskAlarm.kioskId}</a></td>
+								<td nowrap><a id="action-button" href="#"
+									data-toggle="modal" data-target=".bs-example-modal-lg">${kioskAlarm.kioskId}</a></td>
 								<td nowrap>${kioskAlarm.statusNoti}</td>
 								<td nowrap>${kioskAlarm.errorCode}</td>
 								<td nowrap>${kioskAlarm.errorDescription}</td>
@@ -308,7 +308,8 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Kiosk Hareware Status</h4>
+						<h4 class="modal-title" id="myModalLabel">Kiosk Hareware
+							Status</h4>
 					</div>
 					<div class="modal-body" style="overflow: auto;">
 

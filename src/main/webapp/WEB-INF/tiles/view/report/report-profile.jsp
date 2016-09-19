@@ -141,13 +141,11 @@
 								<button type="button" class="btn btn-primary">
 									Search <i class="fa fa-search"></i>
 								</button>
-								&nbsp;&nbsp;
-								<button type="reset" class="btn btn-default">
-									Cancel <i class="fa fa-ban"></i>
-								</button>
-								&nbsp;&nbsp;
+								<a href="<c:url value='/welcome' />" class="btn btn-default">
+		                        	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+		                        </a>
 								<button type="button" class="btn btn-warning" disabled>
-									Export into Excel <i class="fa fa-file-excel-o"></i>
+									Export<i class="fa fa-file-excel-o"></i>
 								</button>
 							</div>
 						</div>

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet"
 	href="${cPath}/resources/css/dataTables.bootstrap.min.css">
@@ -147,11 +147,9 @@
 						<button type="submit" class="btn btn-primary">
 							Search <i class="fa fa-search"></i>
 						</button>
-						&nbsp;&nbsp;
-						<button type="reset" class="btn btn-default">
-							&nbsp;Clear <i class="fa fa-refresh"></i>
-						</button>
-						&nbsp;&nbsp;
+						<a href="<c:url value='/welcome' />" class="btn btn-default">
+                        	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+                        </a>
 					</div>
 				</div>
 			</div>

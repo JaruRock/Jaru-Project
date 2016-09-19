@@ -18,13 +18,21 @@ public class KmsWalletInfoDao extends AbstractDao {
 
 	
 	public Integer create(final KmsWalletInfo kmsWalletInfo) {
-		String sql = "insert into kms_wallet_info (agent_id , pin_code) values (?, ?) ";
+		String sql = "insert into kms_wallet_info (agent_id , pin_code, ma_name, ma_tel, ta_tel, member_type, ta_name, ta_last_name) "
+				+ "values (?, ?, ?, ?, ?, ?, ?, ?) ";
+			  
 		KeyHolder keyHolder = new GeneratedKeyHolder(); 		
 		jdbcTemplate.update(new PreparedStatementCreator() {  
 			public PreparedStatement createPreparedStatement(Connection connection)throws SQLException {  
 				PreparedStatement ps = connection.prepareStatement(sql , new String[]{ "wallet_id" });   
 				ps.setString(1,kmsWalletInfo.getAgentId());
 				ps.setString(2,kmsWalletInfo.getPinCode());
+				ps.setString(3,kmsWalletInfo.getMaName());
+				ps.setString(4,kmsWalletInfo.getMaTel());
+				ps.setString(5,kmsWalletInfo.getTaTel());
+				ps.setString(6,kmsWalletInfo.getMemberType());
+				ps.setString(7,kmsWalletInfo.getTaName());
+				ps.setString(8,kmsWalletInfo.getTaLastName());
 				return ps;
 				}
 			}, 	keyHolder); 	

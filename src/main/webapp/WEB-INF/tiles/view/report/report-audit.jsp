@@ -200,13 +200,11 @@
 			<div class="row">
 				<div class="form-group col-md-12 text-center">
 				   <a href="${cPath}/report-audit-search"><button type="button" class="btn btn-primary">
-						ค้นหา <i class="fa fa-search"></i>
+						 Search <i class="fa fa-search"></i>
 					</button></a>
-					&nbsp;&nbsp;
-					<button type="reset" class="btn btn-default">
-						ยกเลิก <i class="fa fa-ban"></i>
-					</button>
-					&nbsp;&nbsp;
+					<a href="<c:url value='/welcome' />" class="btn btn-default">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+                    </a>
 					<button type="button" class="btn btn-warning" disabled>
 						Export <i class="fa fa-file-excel-o"></i>
 					</button>

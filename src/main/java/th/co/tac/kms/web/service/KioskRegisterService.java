@@ -73,6 +73,12 @@ public class KioskRegisterService {
 		KmsWalletInfo kmsWalletInfo = new KmsWalletInfo();
 		kmsWalletInfo.setAgentId("A" + System.currentTimeMillis());
 		kmsWalletInfo.setPinCode(keyform.getPinCode());
+		kmsWalletInfo.setMaName("FisrtName LastName");
+		kmsWalletInfo.setMaTel("0879999999");
+		kmsWalletInfo.setTaTel("0878888888");
+		kmsWalletInfo.setMemberType("Individual");
+		kmsWalletInfo.setTaName("FirstName TA");
+		kmsWalletInfo.setTaLastName("LastName TA");
 		Integer walletId = kmsWalletInfoDao.create(kmsWalletInfo);
 		
 		//KmsKioskRenterInfo

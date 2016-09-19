@@ -515,7 +515,7 @@
                         <button type="submit" class="btn btn-primary">
                        	 	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Register
                         </button>
-                        <a href="<c:url value='/user-list' />" class="btn btn-default">
+                        <a href="<c:url value='/welcome' />" class="btn btn-default">
                         	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
                         </a>
             </div>

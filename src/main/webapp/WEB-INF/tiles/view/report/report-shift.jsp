@@ -79,13 +79,11 @@
 					<label class="col-md-3 control-lable"></label>
 					<div class="col-md-7">
 						<button type="submit" class="btn btn-primary">
-							ตกลง <i class="fa fa-search"></i>
+							Search <i class="fa fa-search"></i>
 						</button>
-						&nbsp;&nbsp;
-						<button type="reset" class="btn btn-default">
-							&nbsp;Cancel <i class="fa "></i>
-						</button>
-						&nbsp;&nbsp;
+						<a href="<c:url value='/welcome' />" class="btn btn-default">
+                        	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+                        </a>
 					</div>
 				</div>
 			</div>
