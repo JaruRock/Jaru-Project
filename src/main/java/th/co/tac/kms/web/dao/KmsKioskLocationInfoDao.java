@@ -18,7 +18,7 @@ public class KmsKioskLocationInfoDao extends AbstractDao  {
 
 	public Integer create(final KmsKioskLocationInfo kioskLocationInfo) { 
 		String sql = "insert into kms_kiosk_location_info ("
-				+ " id_location_type, kiosk_address, moo, soi,road, id_province,id_district,id_tambon, postal_code,remark_address ) "
+				+ " location_type_id, kiosk_address, moo, soi,road, province_id,district_id,tambon_id, postal_code,remark_address ) "
 				+ " values (?,?,?,?,?,?,?,?,?,?)";
 		KeyHolder keyHolder = new GeneratedKeyHolder(); 		
 		jdbcTemplate.update(new PreparedStatementCreator() {  

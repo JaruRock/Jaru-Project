@@ -16,11 +16,11 @@ public class KmsKioskRenterInfoDao extends AbstractDao {
 	private static final long serialVersionUID = -2539774719030629046L;
 
 	public Integer create(final KmsKioskRenterInfo kioskRenterInfo) { 
-		String sql = "insert into kms_kiosk_renter_info (id_title,first_name,last_name,contact_number) values (?,?,?,?)";
+		String sql = "insert into kms_kiosk_renter_info (title_id,first_name,last_name,contact_number) values (?,?,?,?)";
 		KeyHolder keyHolder = new GeneratedKeyHolder(); 		
 		jdbcTemplate.update(new PreparedStatementCreator() {  
 			public PreparedStatement createPreparedStatement(Connection connection)throws SQLException {  
-				PreparedStatement ps = connection.prepareStatement(sql , new String[]{ "id_renter" });   
+				PreparedStatement ps = connection.prepareStatement(sql , new String[]{ "renter_id" });   
 				ps.setInt(1,Integer.valueOf(kioskRenterInfo.getTitleId()));
 				ps.setString(2,kioskRenterInfo.getFirstName());
 				ps.setString(3,kioskRenterInfo.getLastName());
