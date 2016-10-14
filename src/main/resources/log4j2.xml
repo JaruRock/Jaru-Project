@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO" shutdownHook="disable">
     <Properties>
-        <Property name="log-path">${sys:user.home}/log/KMSWebPortal</Property>
+       <!--  <Property name="log-path">${sys:user.home}/log/KMSWebPortal</Property> -->
+       <Property name="log-path">D:/log/KMSWebPortal</Property>
         <!-- <Property name="debug-pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] - [%X{uuid}][%X{kioskId}] - %msg%n</Property> -->
         <Property name="debug-pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] - %msg%n</Property>
         <Property name="tx-pattern">%d{yyyy-MM-dd HH:mm:ss.SSS}|%msg%n</Property>

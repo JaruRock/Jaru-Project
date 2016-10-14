@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -35,6 +36,7 @@ public abstract class AbstractDao extends JdbcDaoSupport implements Serializable
 
 	
 	protected JdbcTemplate jdbcTemplate;	
+//	protected NamedParameterJdbcTemplate parameterJdbcTemplate;
 	
 	@Lazy
 	@Autowired()
@@ -47,6 +49,7 @@ public abstract class AbstractDao extends JdbcDaoSupport implements Serializable
 	private void initialize() {
 		setDataSource(this.dataSource);
 		jdbcTemplate = new JdbcTemplate(dataSource);
+//		parameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 	}
 	
 	protected void log_info(String wording, Object... arguments) {
