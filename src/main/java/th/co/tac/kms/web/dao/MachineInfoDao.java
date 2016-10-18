@@ -2,14 +2,19 @@ package th.co.tac.kms.web.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import th.co.tac.kms.web.controller.model.MachineInfo;
+import th.co.tac.kms.web.dao.model.KmsKioskMachineInfo;
 
  
 @Repository("machineInfoDao")
@@ -21,8 +26,6 @@ public class MachineInfoDao extends AbstractDao {
 	String insertMachineInfoSQL =	" INSERT INTO kms_kiosk_machine_info( "
 			+ "kiosk_id , vendor_id , kiosk_status , registed_date , wallet_id , renter_id , location_id)"
 			+ "values ( ? , ? , ? , ? , ? , ? , ?) ";
-
-	
 	
 	public Long create(final MachineInfo machineInfo) { 
 		KeyHolder keyHolder = new GeneratedKeyHolder(); 		
@@ -45,8 +48,28 @@ public class MachineInfoDao extends AbstractDao {
 		return returnid;
 	}
 
+	public KmsKioskMachineInfo getAddress(String kioskId){
+		String sql = " select location_id from kms_kiosk_machine_info where kiosk_id= ? ";
+		Object [] param = {kioskId};
+		//Object[] types = {String.class};
+		return jdbcTemplate.queryForObject(sql, param, new RowMapper<KmsKioskMachineInfo>()  {
+			
+			
+			public KmsKioskMachineInfo mapRow(ResultSet row, int rowNum) throws SQLException {
+				KmsKioskMachineInfo location = new KmsKioskMachineInfo();
+                
+				//location.setKioskId(row.getString("kiosk_id"));
+				location.setLocationId(row.getString("location_id"));
 
+				return location;
+
+            }
+        }); 
+	}
 	/*
+	 * 	Class kms_Bean = dao.kms_shift,
+		Class location_bean = dao.location
+
 	 * kms_kiosk_location_info.location_type_id
 kms_kiosk_location_info.other_location
 kms_kiosk_location_info.kiosk_address

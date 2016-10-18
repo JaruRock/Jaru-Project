@@ -2,9 +2,12 @@ package th.co.tac.kms.web.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -44,5 +47,57 @@ public class KmsKioskLocationInfoDao extends AbstractDao  {
 		log_info("ID=", returnid);
 		return returnid.intValue();
 	}
+/*	public KmsKioskLocationInfo getLocation(String LocationId){
+		String sql = " select kiosk_address,soi,road,moo,tambon_id,"
+				+ "district_id, province_id, postal_code from kms_kiosk_location_info where location_id= ? ";
+		Object [] param = {Integer.parseInt(LocationId)};
+		//Object[] types = {String.class};
+		return jdbcTemplate.queryForObject(sql, param, new RowMapper<KmsKioskLocationInfo>()  {
+			
+			
+			public KmsKioskLocationInfo mapRow(ResultSet row, int rowNum) throws SQLException {
+				KmsKioskLocationInfo location = new KmsKioskLocationInfo();
+                
+				location.setKioskAddress(row.getString("kiosk_address"));
+				location.setSoi(row.getString("soi"));
+				location.setRoad(row.getString("road"));
+				location.setMoo(row.getString("moo"));
+				location.setTambonId(row.getInt("tambon_id"));
+				location.setDistrictId(row.getInt("district_id"));
+				location.setProvinceId(row.getInt("province_id"));
+				location.setPostalCode(row.getInt("postal_code"));
 
+				return location;
+
+            }
+        }); 
+
+	}*/
+	public KmsKioskLocationInfo getLocation(String locationId){
+		String sql = " select kiosk_address,soi,road,moo,tambon_id,"
+		+ "district_id, province_id, postal_code from kms_kiosk_location_info where location_id= ? ";
+		Object [] param = {new Integer(locationId)};
+		log_info(" LocationID:"+locationId);
+		//ฝฝint[] types = {Types.INTEGER};
+		return jdbcTemplate.queryForObject(sql, param, new RowMapper<KmsKioskLocationInfo>()  {
+
+
+		public KmsKioskLocationInfo mapRow(ResultSet row, int rowNum) throws SQLException {
+		KmsKioskLocationInfo location = new KmsKioskLocationInfo();
+		               
+		location.setKioskAddress(row.getString("kiosk_address"));
+		location.setSoi(row.getString("soi"));
+		location.setRoad(row.getString("road"));
+		location.setMoo(row.getString("moo"));
+		location.setTambonId(row.getInt("tambon_id"));
+		location.setDistrictId(row.getInt("district_id"));
+		location.setProvinceId(row.getInt("province_id"));
+		location.setPostalCode(row.getInt("postal_code"));
+
+		return location;
+
+		           }
+		       });
+
+		}
 }

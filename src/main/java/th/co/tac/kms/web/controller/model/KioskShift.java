@@ -4,12 +4,7 @@ import java.io.Serializable;
 
 public class KioskShift implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3389420796763161469L;
-
-	
 	private String shiftId;
 	private String kioskId;
 	private String shiftDate;
@@ -38,6 +33,7 @@ public class KioskShift implements Serializable {
 	private int coinTotal;
 	private int billTotal;
 	private int allTotal;
+	private String kioskAddr;
 
 	public String getShiftId() {
 		return shiftId;
@@ -240,6 +236,12 @@ public class KioskShift implements Serializable {
 	public void setAllTotal(int allTotal) {
 		this.allTotal = allTotal;
 	}
-	
-  
+
+	public String getKioskAddr() {
+		return kioskAddr;
+	}
+
+	public void setKioskAddr(String kioskAddr) {
+		this.kioskAddr = kioskAddr;
+	}
 }
