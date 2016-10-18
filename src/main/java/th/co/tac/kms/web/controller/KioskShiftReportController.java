@@ -42,6 +42,12 @@ public class KioskShiftReportController extends AbstractController {
 	public String kioskMovementReportListPOST(KioskShiftCritiria kioskShiftCritiria,ModelMap model) {
 		log_info("controller ");
 		List<KioskShift> kioskShiftList = shiftReportService.getShiftReportList(kioskShiftCritiria);
+		//String kioskAddr = shiftReportService.getKioskLocation(kioskShiftCritiria.getKioskId());
+		for (KioskShift kioskShift : kioskShiftList) {
+			
+			kioskShift.setKioskAddr(shiftReportService.getKioskLocation(kioskShift.getKioskId()));
+		}
+		
 		model.addAttribute("kioskShiftCritiria", kioskShiftCritiria);
 		model.addAttribute("kioskShiftList", kioskShiftList);   
 		model.addAttribute("showModal", "show");

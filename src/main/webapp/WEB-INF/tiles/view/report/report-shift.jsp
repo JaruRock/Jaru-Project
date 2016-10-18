@@ -131,7 +131,7 @@
 								<td nowrap>${domain.endShiftDate}</td>
 								<td nowrap></td>
 								<td nowrap>${domain.kioskId}</td>
-								<td nowrap></td>
+								<td nowrap>${domain.kioskAddr}</td>
 								<td><a href="#"  data-toggle="modal" data-target="#myModal">View</a></td>
 							</tr>
 						</c:forEach>

@@ -13,14 +13,65 @@ import org.springframework.stereotype.Service;
 
 import th.co.tac.kms.web.controller.model.KioskShift;
 import th.co.tac.kms.web.controller.model.KioskShiftCritiria;
+import th.co.tac.kms.web.dao.KmsKioskLocationInfoDao;
 import th.co.tac.kms.web.dao.KmsKioskShiftReportDao;
+import th.co.tac.kms.web.dao.KmsMasterDistrictDao;
+import th.co.tac.kms.web.dao.KmsMasterProvinceDao;
+import th.co.tac.kms.web.dao.KmsMasterTambonDao;
+import th.co.tac.kms.web.dao.MachineInfoDao;
+import th.co.tac.kms.web.dao.model.KmsKioskDistrictMaster;
+import th.co.tac.kms.web.dao.model.KmsKioskLocationInfo;
+import th.co.tac.kms.web.dao.model.KmsKioskMachineInfo;
+import th.co.tac.kms.web.dao.model.KmsKioskProvinceMaster;
 import th.co.tac.kms.web.dao.model.KmsKioskShiftReport;
+import th.co.tac.kms.web.dao.model.KmsKioskTambonMaster;
 
 @Service("KioskShiftReportService")
 public class KioskShiftReportService extends AbstractService {
 	
 	@Autowired
 	KmsKioskShiftReportDao shiftReportDao;
+	
+	@Autowired
+	MachineInfoDao machineInfoDao;
+	
+	@Autowired
+	KmsKioskLocationInfoDao kmsLocationDao;
+	
+	@Autowired
+	KmsMasterProvinceDao kmsMasterProvinceDao;
+	
+	@Autowired
+	KmsMasterDistrictDao kmsMasterDistrictDao;
+	
+	@Autowired
+	KmsMasterTambonDao kmsMasterTambonDao;
+	/*
+ 	Class kms_Bean = dao.kms_shift,
+	Class location_bean = dao.location
+	  */
+	public String getKioskLocation(String kioskId){
+		String location=null;
+		KmsKioskMachineInfo kmsMachine = machineInfoDao.getAddress(kioskId);
+		String locationId = kmsMachine.getLocationId();
+		KmsKioskLocationInfo locationInfo = kmsLocationDao.getLocation(locationId);		
+		String address = locationInfo.getKioskAddress();
+		String soi = locationInfo.getSoi();
+		String road = locationInfo.getRoad();
+		String moo = locationInfo.getMoo();
+		Integer postal = locationInfo.getPostalCode();
+		Integer provinceId = locationInfo.getProvinceId();
+		KmsKioskProvinceMaster province = kmsMasterProvinceDao.getProvince(provinceId);
+		Integer districtId = locationInfo.getDistrictId();
+		KmsKioskDistrictMaster district = kmsMasterDistrictDao.getDistrict(districtId);
+		Integer tambonId = locationInfo.getTambonId();
+		KmsKioskTambonMaster tambon = kmsMasterTambonDao.getTambon(tambonId);
+		location = address + " " + soi + " " + road + " " + moo + " "  + tambon.getTambonName() + " " + district.getDistrictName() + " " + province.getProvinceName() + " " + postal;
+		//log_info(location);
+		return location;
+	
+		
+	}
 	
 	public List<KioskShift> getShiftReportList(KioskShiftCritiria critiria) {
 		
@@ -65,6 +116,7 @@ public class KioskShiftReportService extends AbstractService {
 		}
 		return kioskShifts;
 	}
+	
 	private String addDay(String dt){
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
 	    Calendar c = Calendar.getInstance(); 
