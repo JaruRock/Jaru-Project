@@ -2,9 +2,7 @@ package th.co.tac.kms.web.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -37,9 +35,8 @@ public class KmsMasterProvinceDao extends AbstractDao {
 	
 	public List<KmsKioskProvinceMaster> getAllProvince() {
 
-		String provinceSQL = "  select * from kms_master_province";
+		String provinceSQL = " select * from kms_master_province ";
 
-		List<KmsKioskProvinceMaster> provinceInfos = new ArrayList<KmsKioskProvinceMaster>();
 		Object[] param = {};
 
 		return jdbcTemplate.query(provinceSQL, param, new RowMapper<KmsKioskProvinceMaster>() {
