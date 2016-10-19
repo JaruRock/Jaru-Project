@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="${cPath}/resources/css/dataTables.bootstrap.min.css">
 <script src="${cPath}/resources/js/jquery.dataTables.min.js"></script>
 <script src="${cPath}/resources/js/dataTables.bootstrap.min.js"></script>
+<script src="${cPath}/resources/js/master-location.js"></script>
 
 <script>
 	$(document).ready(function() {
@@ -49,6 +50,22 @@
 			</div>
 
 			<div class="form-group col-md-12">
+				<label class="col-md-3 control-lable" for="province">จังหวัด</label>
+				<div class="col-md-3">
+					<select id="province-1" class="province form-control input-sm"></select>
+					
+					<form:select path="province"
+								multiple="false" 
+								class="form-control input-sm">
+						<form:option value="0">ทั้งหมด</form:option>
+						<form:options items="${listOfProvince}"
+								itemValue="provinceId" 
+								itemLabel="provinceName"></form:options>
+					</form:select>
+				</div>
+			</div>
+			
+			<div class="form-group col-md-12">
 				<label class="col-md-3 control-lable" for="district">อำเภอ</label>
 				<div class="col-md-3">
 					<form:input type="text" path="district"
@@ -57,9 +74,9 @@
 			</div>
 
 			<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="province">จังหวัด</label>
+				<label class="col-md-3 control-lable" for="subDistri">ตำบล</label>
 				<div class="col-md-3">
-					<form:input type="text" path="province"
+					<form:input type="text" path="subDistri"
 						class="form-control input-sm" />
 				</div>
 			</div>

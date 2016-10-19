@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,10 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import th.co.tac.kms.web.controller.model.KioskMovement;
 import th.co.tac.kms.web.controller.model.KioskMovementCritiria;
+import th.co.tac.kms.web.service.MasterLocationService;
 
 @Controller
 @RequestMapping("/")
-public class KioskMovementReportController {	
+public class KioskMovementReportController {
+	
+	@Autowired MasterLocationService masterLocationService;
+	
 	@ModelAttribute("navClassActiveReport")
 	public String menuActive() {
 		return "active"; // TODO: active navigate menu
@@ -25,6 +30,7 @@ public class KioskMovementReportController {
 	public String kioskMovementReportListGet(ModelMap model) {	 
 		KioskMovementCritiria kioskMovementCritiria = new KioskMovementCritiria(); 
 		model.addAttribute("kioskMovementCritiria", kioskMovementCritiria);
+		model.addAttribute("listOfProvince", masterLocationService.getAllProvince());
 		return "report.movement";
 	}
 	
