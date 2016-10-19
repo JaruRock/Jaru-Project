@@ -29,25 +29,25 @@ public class KmsKioskTransactionInfoDao extends AbstractDao {
 				+ "and trx_datetime <= to_timestamp(?, 'YYYY-MM-DD') "
 				+ "and trx_status = ?";
 		
-		//If No ID given
-		String transactionSql2 = " select trx_datetime, payee_phone, trx_status from kms_transaction"
-				+ "where trx_datetime >= to_timestamp(?, 'YYYY-MM-DD') "
-				+ "and trx_datetime <= to_timestamp(?, 'YYYY-MM-DD') "
-				+ "and trx_status = ?";
-		
-		//If province and district given only, no kiosk_id
-		String 	transactionSql3 = "select kms_kiosk_machine_info.kiosk_id from kms_kiosk_machine_info" 
-				+ "Inner join kms_kiosk_location_info "
-				+ "on kms_kiosk_machine_info.location_id = kms_kiosk_location_info.location_id"
-				+ "where kms_kiosk_location_info.province_id = ?"
-				+ "and kms_kiosk_location_info.district_id= ? ";
-		
-		//If Phone number given
-				String transactionSql4 = " select trx_datetime, payee_phone, trx_status from kms_transaction"
-						+ "where trx_datetime >= to_timestamp(?, 'YYYY-MM-DD') "
-						+ "and trx_datetime <= to_timestamp(?, 'YYYY-MM-DD') "
-						+ "and trx_status = ?"
-						+ "and payee_phone = '?' ";
+//		If No ID given
+//		String transactionSql2 = " select trx_datetime, payee_phone, trx_status from kms_transaction"
+//				+ "where trx_datetime >= to_timestamp(?, 'YYYY-MM-DD') "
+//				+ "and trx_datetime <= to_timestamp(?, 'YYYY-MM-DD') "
+//				+ "and trx_status = ?";
+//		
+//		If province and district given only, no kiosk_id
+//		String 	transactionSql3 = "select kms_kiosk_machine_info.kiosk_id from kms_kiosk_machine_info" 
+//				+ "Inner join kms_kiosk_location_info "
+//				+ "on kms_kiosk_machine_info.location_id = kms_kiosk_location_info.location_id"
+//				+ "where kms_kiosk_location_info.province_id = ?"
+//				+ "and kms_kiosk_location_info.district_id= ? ";
+//		
+//		If Phone number given
+//				String transactionSql4 = " select trx_datetime, payee_phone, trx_status from kms_transaction"
+//						+ "where trx_datetime >= to_timestamp(?, 'YYYY-MM-DD') "
+//						+ "and trx_datetime <= to_timestamp(?, 'YYYY-MM-DD') "
+//						+ "and trx_status = ?"
+//						+ "and payee_phone = '?' ";
 		
 		
 	

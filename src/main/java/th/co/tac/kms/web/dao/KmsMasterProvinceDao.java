@@ -9,7 +9,6 @@ import java.util.Map;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import th.co.tac.kms.web.dao.model.KmsKioskProvinceInfo;
 import th.co.tac.kms.web.dao.model.KmsKioskProvinceMaster;
 
 @Repository("kmsMasterProvinceDao")
@@ -36,20 +35,20 @@ public class KmsMasterProvinceDao extends AbstractDao {
         }); 
 	}
 	
-	public List<KmsKioskProvinceInfo> getAllProvince() {
+	public List<KmsKioskProvinceMaster> getAllProvince() {
 
 		String provinceSQL = "  select * from kms_master_province";
 
-		List<KmsKioskProvinceInfo> provinceInfos = new ArrayList<KmsKioskProvinceInfo>();
+		List<KmsKioskProvinceMaster> provinceInfos = new ArrayList<KmsKioskProvinceMaster>();
 		Object[] param = {};
 
-		return jdbcTemplate.query(provinceSQL, param, new RowMapper<KmsKioskProvinceInfo>() {
+		return jdbcTemplate.query(provinceSQL, param, new RowMapper<KmsKioskProvinceMaster>() {
 
-			public KmsKioskProvinceInfo mapRow(ResultSet row, int rowNum) throws SQLException {
-				KmsKioskProvinceInfo provinceInfo = new KmsKioskProvinceInfo();
+			public KmsKioskProvinceMaster mapRow(ResultSet row, int rowNum) throws SQLException {
+				KmsKioskProvinceMaster provinceInfo = new KmsKioskProvinceMaster();
 
 				provinceInfo.setProvinceId(row.getString("province_id"));
-				provinceInfo.setProvinceNameTh(row.getString("province_name_th"));
+				provinceInfo.setProvinceName(row.getString("province_name_th"));
 				provinceInfo.setProvinceNameEn(row.getString("province_name_en"));
 
 				return provinceInfo;
