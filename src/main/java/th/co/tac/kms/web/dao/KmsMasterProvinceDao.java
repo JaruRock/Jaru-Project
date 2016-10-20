@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import th.co.tac.kms.web.dao.model.KmsKioskProvinceMaster;
 
@@ -53,4 +54,31 @@ public class KmsMasterProvinceDao extends AbstractDao {
 		});
 	}
 	
+	public List<KmsKioskProvinceMaster> getProvincesByProvinceName(String q) {
+		
+		String provinceSQL = 
+				" select province_id, province_name_th, province_name_en "
+				+ " from kms_master_province ";
+		
+		Object[] param = {};
+		
+		if (!StringUtils.isEmpty(q)) {
+			provinceSQL += " where province_name_th like ? "
+				+ " or province_name_en like ? ";
+			param = new Object[] {"%"+q+"%", "%"+q+"%"};
+		}
+
+		return jdbcTemplate.query(provinceSQL, param, new RowMapper<KmsKioskProvinceMaster>() {
+
+			public KmsKioskProvinceMaster mapRow(ResultSet row, int rowNum) throws SQLException {
+				KmsKioskProvinceMaster provinceInfo = new KmsKioskProvinceMaster();
+
+				provinceInfo.setProvinceId(row.getString("province_id"));
+				provinceInfo.setProvinceName(row.getString("province_name_th"));
+				provinceInfo.setProvinceNameEn(row.getString("province_name_en"));
+
+				return provinceInfo;
+			}
+		});
+	}
 }
