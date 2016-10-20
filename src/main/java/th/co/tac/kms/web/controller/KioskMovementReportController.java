@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.google.gson.Gson;
+
 import th.co.tac.kms.web.controller.model.KioskMovement;
 import th.co.tac.kms.web.controller.model.KioskMovementCritiria;
 import th.co.tac.kms.web.service.MasterLocationService;
@@ -30,12 +32,13 @@ public class KioskMovementReportController {
 	public String kioskMovementReportListGet(ModelMap model) {	 
 		KioskMovementCritiria kioskMovementCritiria = new KioskMovementCritiria(); 
 		model.addAttribute("kioskMovementCritiria", kioskMovementCritiria);
-		model.addAttribute("listOfProvince", masterLocationService.getAllProvince());
 		return "report.movement";
 	}
 	
 	@RequestMapping(value = { "/report-movement" }, method = RequestMethod.POST)
 	public String kioskMovementReportListPost(KioskMovementCritiria criteria,ModelMap model) {
+		
+		System.out.println(new Gson().toJson(criteria));
 		List<KioskMovement> kioskMovementList = new ArrayList<KioskMovement>();
 		
 		KioskMovement kioskMovement = new KioskMovement();
