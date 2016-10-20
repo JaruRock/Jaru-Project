@@ -30,17 +30,19 @@ public class KioskShiftReportController extends AbstractController {
 	
 	@RequestMapping(value = { "/report-shift" }, method = RequestMethod.GET)
 	public String kioskMovementReportList(ModelMap model) {
-		log_info("IN kioskMovementReportList ");
+		log_info("IN kioskMovementReportList RequestMethodGET");
 		KioskShiftCritiria kioskShiftCritiria = new KioskShiftCritiria(); 
 		model.addAttribute("kioskShiftCritiria", kioskShiftCritiria);
 		model.addAttribute("showModal", "hide");
-		log_info("IN kioskMovementReportList ");
+		log_info("OUT kioskMovementReportList RequestMethodGET");
 		return "report.shift";
 	}
 	
 	@RequestMapping(value = { "/report-shift" }, method = RequestMethod.POST)
 	public String kioskMovementReportListPOST(KioskShiftCritiria kioskShiftCritiria,ModelMap model) {
-		log_info("controller ");
+		Long beginTime = System.currentTimeMillis();
+		log_info("IN kioskMovementReportListPOST ");
+		try{
 		List<KioskShift> kioskShiftList = shiftReportService.getShiftReportList(kioskShiftCritiria);
 		//String kioskAddr = shiftReportService.getKioskLocation(kioskShiftCritiria.getKioskId());
 		for (KioskShift kioskShift : kioskShiftList) {
@@ -53,6 +55,11 @@ public class KioskShiftReportController extends AbstractController {
 		model.addAttribute("showModal", "show");
 		log_info("OUT kioskMovementReportListPOST ");
 		return "report.shift";
+		}finally{
+			Long endTime = System.currentTimeMillis(); 
+			Long difference = endTime - beginTime;
+			log_info("KioskShiftReportService Time:" + difference);
+		}
 	}
 	
 
