@@ -2,10 +2,12 @@ package th.co.tac.kms.web.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import th.co.tac.kms.web.dao.model.KmsKioskDistrictMaster;
 
@@ -51,4 +53,28 @@ public class KmsMasterDistrictDao extends AbstractDao{
 		});
 	}
 
+	public List<KmsKioskDistrictMaster> getDistrictByName(String q, Integer provinceId) {
+
+		String sql = " select district_id, district_name_th from kms_master_district where province_id = ? ";
+		
+		List<Object> param = new ArrayList<Object>();
+		param.add(provinceId);
+		
+		if (!StringUtils.isEmpty(q)) {
+			sql += " and district_name_th like ? ";
+			param.add("%"+q+"%");
+		}
+
+		return jdbcTemplate.query(sql, param.toArray(), new RowMapper<KmsKioskDistrictMaster>() {
+
+			public KmsKioskDistrictMaster mapRow(ResultSet row, int rowNum) throws SQLException {
+				KmsKioskDistrictMaster districtInfo = new KmsKioskDistrictMaster();
+
+				districtInfo.setDistrictId(row.getString("district_id"));
+				districtInfo.setDistrictName(row.getString("district_name_th"));
+
+				return districtInfo;
+			}
+		});
+	}
 }

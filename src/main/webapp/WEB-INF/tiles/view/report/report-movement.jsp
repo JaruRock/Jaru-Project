@@ -62,24 +62,24 @@
 			<div class="form-group col-md-12">
 				<label class="col-md-3 control-lable" for="district">อำเภอ</label>
 				<div class="col-md-3">
-					<form:input type="text" path="district"
-						class="form-control input-sm" />
+					<form:select path="district" multiple="false" class="form-control input-sm">
+					</form:select>
 				</div>
 			</div>
 
 			<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="subDistri">ตำบล</label>
+				<label class="col-md-3 control-lable" for="tambon">ตำบล</label>
 				<div class="col-md-3">
-					<form:input type="text" path="subDistri"
-						class="form-control input-sm" />
+					<form:select path="tambon" multiple="false" class="form-control input-sm">
+					</form:select>
 				</div>
 			</div>
 
 			<div class="form-group col-md-12">
 				<label class="col-md-3 control-lable" for="number">Kiosk ID</label>
 				<div class="col-md-4">
-					<form:input type="text" path="kioskId"
-						class="form-control input-sm" />
+					<form:select path="kioskId" multiple="false" class="form-control input-sm">
+					</form:select>
 				</div>
 			</div>
 

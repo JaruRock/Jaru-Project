@@ -2,10 +2,12 @@ package th.co.tac.kms.web.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import th.co.tac.kms.web.dao.model.KmsKioskTambonMaster;
 
@@ -46,6 +48,31 @@ public class KmsMasterTambonDao extends AbstractDao{
 				tambonInfo.setTambonId(row.getString("tambon_id"));
 				tambonInfo.setTambonName(row.getString("tambon_name_th"));
 				tambonInfo.setTambonNameEn(row.getString("tambon_name_en"));
+
+				return tambonInfo;
+			}
+		});
+	}
+	
+	public List<KmsKioskTambonMaster> getTambonByName(String q, Integer districtId) {
+
+		String sql = " select tambon_id, tambon_name_th from kms_master_tambon where district_id = ? ";
+		
+		List<Object> param = new ArrayList<Object>();
+		param.add(districtId);
+		
+		if (!StringUtils.isEmpty(q)) {
+			sql += " and tambon_name_th like ? ";
+			param.add("%"+q+"%");
+		}
+
+		return jdbcTemplate.query(sql, param.toArray(), new RowMapper<KmsKioskTambonMaster>() {
+
+			public KmsKioskTambonMaster mapRow(ResultSet row, int rowNum) throws SQLException {
+				KmsKioskTambonMaster tambonInfo = new KmsKioskTambonMaster();
+
+				tambonInfo.setTambonId(row.getString("tambon_id"));
+				tambonInfo.setTambonName(row.getString("tambon_name_th"));
 
 				return tambonInfo;
 			}

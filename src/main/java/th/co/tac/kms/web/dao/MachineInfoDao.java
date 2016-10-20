@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import th.co.tac.kms.web.controller.model.MachineInfo;
 import th.co.tac.kms.web.dao.model.KmsKioskMachineInfo;
@@ -105,5 +106,45 @@ kms_kiosk_location_info.remark_address
   other_location character varying(100),
 
 	 */
+	
+	public List<KmsKioskMachineInfo> getKioskIdById(String q, Integer provinceId, Integer districtId, Integer tambonId) {
+		
+		String sql = 
+			" select mac.kiosk_id from kms_kiosk_machine_info mac " 
+			+ " inner join kms_kiosk_location_info loc "
+			+ " on mac.location_id = loc.location_id "
+			+ " where 1 = 1 ";;
+		
+		List<Object> param = new ArrayList<Object>();
+		if (!StringUtils.isEmpty(q)) {
+			sql += " and kiosk_id like ? ";
+			param.add("%"+q+"%");
+		}
+		
+		if (!StringUtils.isEmpty(provinceId)) {
+			sql += " and province_id like ? ";
+			param.add(provinceId);
+		}
 
+		if (!StringUtils.isEmpty(districtId)) {
+			sql += " and district_id like ? ";
+			param.add(districtId);
+		}
+		
+		if (!StringUtils.isEmpty(tambonId)) {
+			sql += " and tambon_id like ? ";
+			param.add(tambonId);
+		}
+
+		return jdbcTemplate.query(sql, param.toArray(), new RowMapper<KmsKioskMachineInfo>() {
+
+			public KmsKioskMachineInfo mapRow(ResultSet row, int rowNum) throws SQLException {
+				KmsKioskMachineInfo kioskMachineInfo = new KmsKioskMachineInfo();
+
+				kioskMachineInfo.setKioskId(row.getString("kiosk_id"));
+
+				return kioskMachineInfo;
+			}
+		});
+	}
 }

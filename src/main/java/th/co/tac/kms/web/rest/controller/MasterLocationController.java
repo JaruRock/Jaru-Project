@@ -3,7 +3,6 @@ package th.co.tac.kms.web.rest.controller;
 import java.io.UnsupportedEncodingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,21 +18,39 @@ public class MasterLocationController extends RestAbstractController {
 	@Autowired
 	MasterLocationService masterLocationService;
 	
-	@RequestMapping(value = "/provinces", method = RequestMethod.GET, 
-			headers = "Accept=application/json",
-			produces = "application/json;charset=UTF-8")
+	@RequestMapping(value = "/provinces", method = RequestMethod.GET 
+			, headers = "Accept=application/json"
+			, produces = "application/json;charset=UTF-8")
 	public String provinces(@RequestParam(value="q", required = false) String q) throws UnsupportedEncodingException {
-		return new Gson().toJson(masterLocationService.searchProvinceByProvinceName(q));
+		return new Gson().toJson(masterLocationService.getProvinceCombobox(q));
 	}
 	
-	@RequestMapping(value = "/{provinceId}/districts", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String districts(@PathVariable("provinceId") Integer provinceId) {
-		return new Gson().toJson(masterLocationService.getDistricts(provinceId));
+	@RequestMapping(value = "districts", method = RequestMethod.GET
+			, headers = "Accept=application/json"
+			, produces = "application/json;charset=UTF-8")
+	public String districts(
+			@RequestParam(value="q", required = false) String q
+			, @RequestParam(value="provinceId") Integer provinceId) {
+		return new Gson().toJson(masterLocationService.getDistrictCombobox(q, provinceId));
 	}
 
-	@RequestMapping(value = "/{districtId}/tambons", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String tambons(@PathVariable("districtId") Integer districtId) {
-		return new Gson().toJson(masterLocationService.getTambons(districtId));
+	@RequestMapping(value = "tambons", method = RequestMethod.GET
+			, headers = "Accept=application/json"
+			, produces = "application/json;charset=UTF-8")
+	public String tambons(
+			@RequestParam(value="q", required = false) String q
+			, @RequestParam(value="districtId") Integer districtId) {
+		return new Gson().toJson(masterLocationService.getTambonCombobox(q, districtId));
 	}
 	
+	@RequestMapping(value = "kioskIds", method = RequestMethod.GET
+			, headers = "Accept=application/json"
+			, produces = "application/json;charset=UTF-8")
+	public String kiosks(
+			@RequestParam(value="q", required = false) String q
+			, @RequestParam(value="provinceId", required = false) Integer provinceId
+			, @RequestParam(value="districtId", required = false) Integer districtId
+			, @RequestParam(value="tambonId", required = false) Integer tambonId) {
+		return new Gson().toJson(masterLocationService.getKioskIdCombobox(q, provinceId, districtId, tambonId));
+	}
 }

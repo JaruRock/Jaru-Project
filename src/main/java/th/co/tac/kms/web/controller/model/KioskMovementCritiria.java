@@ -14,7 +14,7 @@ public class KioskMovementCritiria implements Serializable {
 	private String phoneNumber;
 	private String district;//อำเภอ
 	private String province;//จังหวัด	
-	private String subDistri;//ตำบล
+	private String tambon;//ตำบล
 	private String kioskId;//รหัสตู้เติมเงิน (Kiosk ID) 
 	private String fromDate ;//From Date
 	private String toDate;//To Date
@@ -46,11 +46,11 @@ public class KioskMovementCritiria implements Serializable {
 	public void setProvince(String province) {
 		this.province = province;
 	}
-	public String getSubDistri() {
-		return subDistri;
+	public String getTambon() {
+		return tambon;
 	}
-	public void setSubDistri(String subDistri) {
-		this.subDistri = subDistri;
+	public void setTambon(String tambon) {
+		this.tambon = tambon;
 	}
 	public String getKioskId() {
 		return kioskId;
