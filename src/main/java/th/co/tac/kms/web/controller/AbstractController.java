@@ -17,7 +17,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 
 public class AbstractController {
-
+	
 	private Logger logger = LogManager.getLogger(this.getClass());
 	private static final String LOG_SRVC_NAME = "[CTRL] - ";
 	
