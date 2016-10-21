@@ -147,4 +147,37 @@ kms_kiosk_location_info.remark_address
 			}
 		});
 	}
+	
+	// find kioskId using provinceId, districtId and tambonId
+		public List<KmsKioskMachineInfo> getKioskId(String provinceId, String districtId, String tambonId) {
+
+			// If province_id given, find kiosk_id
+			String FindKioskId = "select kms_kiosk_machine_info.kiosk_id from kms_kiosk_machine_info"
+					+ "Inner join kms_kiosk_location_info "
+					+ "on kms_kiosk_machine_info.location_id = kms_kiosk_location_info.location_id"
+					+ "where kms_kiosk_location_info.province_id = ?";
+
+			if (districtId != null) {
+
+				FindKioskId += " and kms_kiosk_location_info.district_id =? ";
+			} else if (tambonId != null) {
+				FindKioskId += " and kms_kiosk_location_info.tambon_id=? ";
+			} else {
+				log_debug("input is invalid");
+			}
+
+			List<KmsKioskMachineInfo> kioskIds = new ArrayList<KmsKioskMachineInfo>();
+			Object[] param = { provinceId, districtId, tambonId };
+
+			return jdbcTemplate.query(FindKioskId, param, new RowMapper<KmsKioskMachineInfo>() {
+				public KmsKioskMachineInfo mapRow(ResultSet row, int rowNum) throws SQLException {
+					KmsKioskMachineInfo kioskId = new KmsKioskMachineInfo();
+
+					kioskId.setKioskId(row.getString("kiosk_id"));
+
+					return kioskId;
+				}
+			});
+
+		}
 }

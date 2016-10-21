@@ -36,7 +36,7 @@ public abstract class AbstractDao extends JdbcDaoSupport implements Serializable
 
 	
 	protected JdbcTemplate jdbcTemplate;	
-//	protected NamedParameterJdbcTemplate parameterJdbcTemplate;
+	protected NamedParameterJdbcTemplate parameterJdbcTemplate;
 	
 	@Lazy
 	@Autowired()
@@ -49,7 +49,7 @@ public abstract class AbstractDao extends JdbcDaoSupport implements Serializable
 	private void initialize() {
 		setDataSource(this.dataSource);
 		jdbcTemplate = new JdbcTemplate(dataSource);
-//		parameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+		parameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 	}
 	
 	protected void log_info(String wording, Object... arguments) {
