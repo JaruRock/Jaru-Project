@@ -41,6 +41,8 @@ public class KioskShiftReportController extends AbstractController {
 	@RequestMapping(value = { "/report-shift" }, method = RequestMethod.POST)
 	public String kioskMovementReportListPOST(KioskShiftCritiria kioskShiftCritiria,ModelMap model) {
 		Long beginTime = System.currentTimeMillis();
+		String network = kioskShiftCritiria.getNetworkMAName();
+		log_info("network=" + network + ":");
 		log_info("IN kioskMovementReportListPOST ");
 		try{
 		List<KioskShift> kioskShiftList = shiftReportService.getShiftReportList(kioskShiftCritiria);

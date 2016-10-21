@@ -48,6 +48,7 @@ public class KioskShiftReportService extends AbstractService {
 	KmsMasterTambonDao kmsMasterTambonDao;
 
 	public String getKioskLocation(String kioskId){
+		log_info("getKioskLocation kioskId"+ kioskId);
 		Long beginTime = System.currentTimeMillis();
 		try{
 			String location=null;
@@ -125,6 +126,7 @@ public class KioskShiftReportService extends AbstractService {
 	}
 	
 	private String addDay(String dt){
+		log_info("addDay dt"+ dt);
 		Long beginTime = System.currentTimeMillis();
 		try {
 		    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
