@@ -85,5 +85,9 @@
 		<put-attribute name="body" value="/WEB-INF/tiles/view/user-management/create-user.jsp" />
 	</definition>
 	
+	<definition name="manage.user" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/user-management/manage-user.jsp" />
+	</definition>
+	
 	
 </tiles-definitions>
