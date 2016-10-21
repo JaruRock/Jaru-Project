@@ -44,40 +44,43 @@
 			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">ชื่อ Network MA *</label>
 						<div class="col-lg-4">
-							<input type="text" class="form-control" id="">
+							<input type="text" class="form-control" id="" list="TAName">
+							<datalist id="TAName">
+								<option value="0"></option>								
+							</datalist>
 						</div>
 			</div>
 			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">ชื่อ Network TA *</label>
 						<div class="col-lg-4">
-							<input type="text" class="form-control" id="">
+							<input type="text" class="form-control" id="" list="TAName">
+							<datalist id="TAName">
+								<option value="0"></option>								
+							</datalist>
 						</div>
 			</div>
 			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">หมายเลขโทรศัพท์ที่สมัครตัวแทนTA*</label>
 						<div class="col-lg-4">
-							<input type="text" class="form-control" id="">
+							<input type="text" class="form-control" id="" list="TAName">
+							<datalist id="TAName">
+								<option value="0"></option>								
+							</datalist>
 						</div>
 			</div>
 			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">หน้าที่ในการเข้าใช้งาน*</label>
 						<div class="col-lg-4">
-							<select class="form-control" id="">
-								<option value="">All</option>
-							</select>
+							<input type="text" class="form-control" id="" list="TAName">
+							<datalist id="TAName">
+								<option value="0"></option>								
+							</datalist>
 						</div>
 			</div>
 			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">ชื่อ-นามสกุลผู้เข้าใช้งาน*</label>
 						<div class="col-lg-4">
-							<input type="text" class="form-control" id="" list="TAName">
-							<datalist id="TAName">
-								<option value="Something"></option>
-								<option value="Something Else"></option>
-								<option value="Another One"></option>
-								<option value="Alpha"></option>
-								<option value="Bravo"></option>
-							</datalist>
+							<input type="text" class="form-control" id="">
 						</div>
 			</div>
 			<div class="form-group col-md-12">
