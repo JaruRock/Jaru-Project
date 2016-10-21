@@ -30,18 +30,6 @@
 	<div class="well">
 		<div class="row">
 			<div class="form-group col-md-12">
-				
-						<label for="name" class="col-lg-4 control-label">Operator</label>
-						<div class="col-lg-6">
-							<div class="radio" style="float: left; margin: 0 10px;">
-								<label><input type="radio" name="operator" value="AWN">AIS</label>
-							</div>
-							<div class="radio" style="float: left; margin: 0 10px;">
-								<label><input type="radio" name="operator" value="DTAC">DTAC</label>
-							</div>
-						</div>
-			</div>
-			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">ชื่อ Network MA *</label>
 						<div class="col-lg-4">
 							<input type="text" class="form-control" id="" list="TAName">
@@ -101,7 +89,7 @@
 							<input type="text" class="form-control" id="">
 						</div>
 			</div>
-		</div><br>
+		</div>
 		<div class="row">
 					<div class="col-lg-12">
 						<div class="form-group ">
