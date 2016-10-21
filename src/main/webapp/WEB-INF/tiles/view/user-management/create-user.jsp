@@ -29,8 +29,8 @@
 	</div>
 	<div class="well">
 		<div class="row">
-			<div class="form-group">
-				<div class="row">
+			<div class="form-group col-md-12">
+				
 						<label for="name" class="col-lg-4 control-label">Operator</label>
 						<div class="col-lg-6">
 							<div class="radio" style="float: left; margin: 0 10px;">
@@ -40,37 +40,36 @@
 								<label><input type="radio" name="operator" value="DTAC">DTAC</label>
 							</div>
 						</div>
-				</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">ชื่อ Network MA *</label>
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<input type="text" class="form-control" id="">
 						</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">ชื่อ Network TA *</label>
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<input type="text" class="form-control" id="">
 						</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">หมายเลขโทรศัพท์ที่สมัครตัวแทนTA*</label>
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<input type="text" class="form-control" id="">
 						</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">หน้าที่ในการเข้าใช้งาน*</label>
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<select class="form-control" id="">
 								<option value="">All</option>
 							</select>
 						</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">ชื่อ-นามสกุลผู้เข้าใช้งาน*</label>
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<input type="text" class="form-control" id="" list="TAName">
 							<datalist id="TAName">
 								<option value="Something"></option>
@@ -81,21 +80,21 @@
 							</datalist>
 						</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">กรุณาระบุ ชื่อล๊อคอิน ที่ต้องการ:</label>
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<input type="text" class="form-control" id="">
 						</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">กรุณาระบุ รหัสผ่าน:</label>
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<input type="text" class="form-control" id="">
 						</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group col-md-12">
 						<label for="" class="col-lg-4 control-label">กรุณาระบุ รหัสผ่าน อีกครั้ง:</label>
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<input type="text" class="form-control" id="">
 						</div>
 			</div>
@@ -108,7 +107,7 @@
 									บันทึก <i class="fa fa-search"></i>
 								</button>
 								<button type="button" class="btn btn-warning" disabled>
-									ยกเลิก<i class="fa fa-file-excel-o"></i>
+									ยกเลิก<i class="fa fa-times"></i>
 								</button>
 							</div>
 						</div>
