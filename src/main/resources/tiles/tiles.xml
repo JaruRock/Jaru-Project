@@ -62,6 +62,9 @@
 	<definition name="report.movement" extends="base.layout">
 		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-movement.jsp" />
 	</definition>
+	<definition name="report.shift.detail" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-shift-detail.jsp" />
+	</definition>
 	<definition name="report.shift" extends="base.layout">
 		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-shift.jsp" />
 	</definition>
@@ -76,6 +79,14 @@
 	</definition>
 	<definition name="report.hardwareStatus" extends="base.layout">
 		<put-attribute name="body" value="/WEB-INF/tiles/view/report/report-hardware-status.jsp" />
+	</definition>
+	
+	<definition name="create.user" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/user-management/create-user.jsp" />
+	</definition>
+	
+	<definition name="manage.user" extends="base.layout">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/user-management/manage-user.jsp" />
 	</definition>
 	
 	

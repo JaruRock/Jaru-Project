@@ -11,13 +11,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 /**
  * <p> SODA Project </p>
  * @version 1.0
- * @author Phongsathorn Anguyarn <phongsathorn@xp-link.com>
+ * @author Phongsathorn Angyarn <phongsathorn@xp-link.com>
  * @since September, 2016
  *
  */
 
 public class AbstractController {
-
+	
 	private Logger logger = LogManager.getLogger(this.getClass());
 	private static final String LOG_SRVC_NAME = "[CTRL] - ";
 	

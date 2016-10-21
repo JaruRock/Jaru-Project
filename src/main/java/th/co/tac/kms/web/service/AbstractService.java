@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * <p> SODA Project </p>
  * @version 1.0
- * @author Phongsathorn Anguyarn <phongsathorn@xp-link.com>
+ * @author Phongsathorn Angyarn <phongsathorn@xp-link.com>
  * @since September, 2016
  *
  */

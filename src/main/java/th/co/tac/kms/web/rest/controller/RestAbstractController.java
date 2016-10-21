@@ -1,55 +1,37 @@
-package th.co.tac.kms.web.dao;
+package th.co.tac.kms.web.rest.controller;
 
-import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.Scanner;
 
-import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
-import org.springframework.stereotype.Repository;
-
-import th.co.tac.kms.web.config.sql.SQLPropertyFileConfig;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * <p> SODA Project </p>
  * @version 1.0
- * @author Phongsathorn Angyarn <phongsathorn@xp-link.com>
- * @since September, 2016
+ * @author Nuttawut Singhabut <nuttawut@xp-link.com>
+ * @since October, 2016
  *
  */
 
-@Repository
-public abstract class AbstractDao extends JdbcDaoSupport implements Serializable {
+@RequestMapping("/rest")
+public class RestAbstractController {
 
-	private static final long serialVersionUID = 5150364520692513184L;
-
-	private static final String LOG_SRVC_NAME = "[DAO] - ";
 	private Logger logger = LogManager.getLogger(this.getClass());
-
+	private static final String LOG_SRVC_NAME = "[REST] - ";
 	
-	protected JdbcTemplate jdbcTemplate;	
-//	protected NamedParameterJdbcTemplate parameterJdbcTemplate;
-	
-	@Lazy
-	@Autowired()
-	protected DataSource dataSource;
-	
-	@Autowired
-	protected SQLPropertyFileConfig sqlConfig;
-	
-	@PostConstruct
-	private void initialize() {
-		setDataSource(this.dataSource);
-		jdbcTemplate = new JdbcTemplate(dataSource);
-//		parameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+	protected String getPrincipal() {
+		String userName = null;
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (principal instanceof UserDetails) {
+			userName = ((UserDetails) principal).getUsername();
+		} else {
+			userName = principal.toString();
+		}
+		return userName;
 	}
 	
 	protected void log_info(String wording, Object... arguments) {
@@ -104,5 +86,4 @@ public abstract class AbstractDao extends JdbcDaoSupport implements Serializable
 	private String toStackTraceString(StackTraceElement trace) {
 		return "  at " + trace.getClassName() + "." + trace.getMethodName() + " (" + trace.getFileName() + ":" + trace.getLineNumber() + ")";
 	}
-	
 }

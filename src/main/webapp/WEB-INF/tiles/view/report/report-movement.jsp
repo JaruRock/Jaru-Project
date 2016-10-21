@@ -4,8 +4,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="${cPath}/resources/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="${cPath}/resources/css/select2.min.css">
 <script src="${cPath}/resources/js/jquery.dataTables.min.js"></script>
 <script src="${cPath}/resources/js/dataTables.bootstrap.min.js"></script>
+<script src="${cPath}/resources/js/master-location.js"></script>
+<script src="${cPath}/resources/js/select2.full.min.js"></script>
 
 <script>
 	$(document).ready(function() {
@@ -49,26 +52,34 @@
 			</div>
 
 			<div class="form-group col-md-12">
+				<label class="col-md-3 control-lable" for="province">จังหวัด</label>
+				<div class="col-md-3">
+					<form:select path="province" multiple="false" class="form-control input-sm">
+					</form:select>
+				</div>
+			</div>
+			
+			<div class="form-group col-md-12">
 				<label class="col-md-3 control-lable" for="district">อำเภอ</label>
 				<div class="col-md-3">
-					<form:input type="text" path="district"
-						class="form-control input-sm" />
+					<form:select path="district" multiple="false" class="form-control input-sm">
+					</form:select>
 				</div>
 			</div>
 
 			<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="province">จังหวัด</label>
+				<label class="col-md-3 control-lable" for="tambon">ตำบล</label>
 				<div class="col-md-3">
-					<form:input type="text" path="province"
-						class="form-control input-sm" />
+					<form:select path="tambon" multiple="false" class="form-control input-sm">
+					</form:select>
 				</div>
 			</div>
 
 			<div class="form-group col-md-12">
 				<label class="col-md-3 control-lable" for="number">Kiosk ID</label>
 				<div class="col-md-4">
-					<form:input type="text" path="kioskId"
-						class="form-control input-sm" />
+					<form:select path="kioskId" multiple="false" class="form-control input-sm">
+					</form:select>
 				</div>
 			</div>
 

@@ -4,17 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import th.co.tac.kms.web.controller.model.KioskAlarmReport;
 import th.co.tac.kms.web.controller.model.KioskAlarmReportCritiria;
-import th.co.tac.kms.web.controller.model.KioskAuditReport;
-import th.co.tac.kms.web.controller.model.KioskAuditReportCritiria;
 import th.co.tac.kms.web.controller.model.KioskHarewareStatusReport;
 
 @Service("kioskAlarmReportService")
 public class KioskAlarmReportService {
-
+	
 	public List<KioskAlarmReport> findByKioskAlarmReport(KioskAlarmReportCritiria kioskAlarmReportCritiria) {
 		// List<KioskAuditReport> kioskAuditReportList = new
 		// ArrayList<KioskAuditReport>();
