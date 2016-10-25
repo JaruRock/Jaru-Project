@@ -44,23 +44,23 @@ public class KioskMovementReportController {
 		KioskMovement kioskMovement = new KioskMovement();
 
 		System.out.println(" kioskMovementList Start ");
-		kioskMovement.setNo("1");//No
-		kioskMovement.setTransactionDate("9 7 2015 13:50");//วัน-เวลาที่ทำรายการ
+		kioskMovement.setNumberOfRows("1");// ตั้งว่ามีกี่บรรทัด
+		kioskMovement.setTrxDateTime("9 7 2015 13:50");//วัน-เวลาที่ทำรายการ
 		kioskMovement.setKioskId("89-PHP Fl.21");//เลขที่เครื่อง KIOSK
-		kioskMovement.setService("วันทูคอล");//บริการ
-		kioskMovement.setOperationUserId("2011090001");//หมายเลขผู้ทำรายการ
-		kioskMovement.setCustomerPhoneNumber("817576217");//หมายเลขโทรศัพท์ลูกค้า
+		kioskMovement.setServiceId("วันทูคอล");//บริการ
+		kioskMovement.setAgentId("2011090001");//หมายเลขผู้ทำรายการ
+		kioskMovement.setPayeePhone("817576217");//หมายเลขโทรศัพท์ลูกค้า
 		kioskMovement.setTransactionId("2911811839");//TXID
-		kioskMovement.setBalanceCreditAmount(new BigDecimal("4"));//Credit ยกมา
-		kioskMovement.setProductAmountAmount(new BigDecimal("20"));//Product AMT
-		kioskMovement.setFeeAmount(new BigDecimal("0"));//ค่าธรรมเนียม
-		kioskMovement.setExpenseAmount(new BigDecimal("20"));//จำนวนที่ต้องชำระ
-		kioskMovement.setUsedCreditAmount(new BigDecimal("4"));//Credit ถูกใช้
-		kioskMovement.setNetExpenseAmount(new BigDecimal("16"));//ยอดที่ต้องชำระ
-		kioskMovement.setCoinAndBankAmout(new BigDecimal("20"));//จำนวนเงินที่หยอด
-		kioskMovement.setAddedCreditAmount(new BigDecimal("4"));//Credit เพิ่ม
-		kioskMovement.setMovedCreditAmount(new BigDecimal("4"));//Credit ยกไป
-		kioskMovement.setResult("Success");//Result
+		kioskMovement.setBeforeCreditAmount(new BigDecimal("4"));//Credit ยกมา
+		kioskMovement.setPurchaseAmount(new BigDecimal("20"));//Product AMT
+		kioskMovement.setKioskFee(new BigDecimal("0"));//ค่าธรรมเนียม
+		kioskMovement.setInsertedAmount(new BigDecimal("20"));//จำนวนที่ต้องชำระ
+		kioskMovement.setUsedCredit(new BigDecimal("4"));//Credit ถูกใช้
+		kioskMovement.setNetAmount(new BigDecimal("16"));//ยอดที่ต้องชำระ
+		kioskMovement.setPaymentAmount(new BigDecimal("20"));//จำนวนเงินที่หยอด
+		kioskMovement.setAddedCredit(new BigDecimal("4"));//Credit เพิ่ม
+		kioskMovement.setRollOveredCredit(new BigDecimal("4"));//Credit ยกไป
+		kioskMovement.setStatus("Success");//Result
 		
 		kioskMovementList.add(kioskMovement);
 		model.addAttribute("kioskMovementList", kioskMovementList);

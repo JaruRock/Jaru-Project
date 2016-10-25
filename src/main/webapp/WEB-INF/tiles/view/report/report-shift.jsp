@@ -70,7 +70,7 @@
 			</div>
 
 			<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="number">Kiosk ID</label>
+				<label class="col-md-3 control-lable" for="number">Kiosk ID*</label>
 				<div class="col-md-4">
 					<form:input type="text" path="kioskId"
 						class="form-control input-sm" />
@@ -78,7 +78,7 @@
 			</div>
 
 			<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="dateFrom">ตั้งแต่วันที่</label>
+				<label class="col-md-3 control-lable" for="dateFrom">ตั้งแต่วันที่*</label>
 				<div class="col-md-4">
 					<form:input type="text" path="fromDate"
 						class="form-control input-sm" id="datepicker" />
@@ -86,7 +86,7 @@
 			</div>
 
 			<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="dateTo">ถึงวันที่</label>
+				<label class="col-md-3 control-lable" for="dateTo">ถึงวันที่*</label>
 				<div class="col-md-4">
 					<form:input type="text" path="toDate" class="form-control input-sm" id="datepicker2" />
 				</div>
