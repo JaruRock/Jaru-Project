@@ -7,41 +7,42 @@ public class KioskMovement implements Serializable {
 
 	private static final long serialVersionUID = -8589678733994588771L;
 	
-	private String no;//No
-	private String transactionDate;//วัน-เวลาที่ทำรายการ
+	private String numberOfRows;//No
+	private String trxDateTime;//วัน-เวลาที่ทำรายการ
 	private String kioskId;//เลขที่เครื่อง KIOSK
-	private String service;//บริการ
-	private String operationUserId;//หมายเลขผู้ทำรายการ
-	private String customerPhoneNumber;//หมายเลขโทรศัพท์ลูกค้า
+	private String serviceId;//บริการ
+	private String agentId;//หมายเลขผู้ทำรายการ
+	private String payeePhone;//หมายเลขโทรศัพท์ลูกค้า
 	private String transactionId;//TXID
-	private BigDecimal balanceCreditAmount;//Credit ยกมา
-	private BigDecimal productAmountAmount;//Product AMT
-	private BigDecimal feeAmount;//ค่าธรรมเนียม
-	private BigDecimal expenseAmount;//จำนวนที่ต้องชำระ
-	private BigDecimal usedCreditAmount;//Credit ถูกใช้
-	private BigDecimal netExpenseAmount;//ยอดที่ต้องชำระ
-	private BigDecimal coinAndBankAmout;//จำนวนเงินที่หยอด
-	private BigDecimal addedCreditAmount;//Credit เพิ่ม
-	private BigDecimal movedCreditAmount;//Credit ยกไป
-	private String result;//Result
+	private BigDecimal beforeCreditAmount;//Credit ยกมา
+	private BigDecimal purchaseAmount;//Product AMT
+	private BigDecimal kioskFee;//ค่าธรรมเนียม
+	private BigDecimal insertedAmount;//จำนวนที่ต้องชำระ
+	private BigDecimal usedCredit;//Credit ถูกใช้
+	private BigDecimal netAmount;//ยอดที่ต้องชำระ
+	private BigDecimal paymentAmount;//จำนวนเงินที่หยอด
+	private BigDecimal addedCredit;//Credit เพิ่ม
+	private BigDecimal rollOveredCredit;//Credit ยกไป
+	private String status;//Result
 	
-	public String getNo() {
-		return no;
+
+	public String getNumberOfRows() {
+		return numberOfRows;
 	}
 
 
-	public void setNo(String no) {
-		this.no = no;
+	public void setNumberOfRows(String numberOfRows) {
+		this.numberOfRows = numberOfRows;
 	}
 
 
-	public String getTransactionDate() {
-		return transactionDate;
+	public String getTrxDateTime() {
+		return trxDateTime;
 	}
 
 
-	public void setTransactionDate(String transactionDate) {
-		this.transactionDate = transactionDate;
+	public void setTrxDateTime(String trxDateTime) {
+		this.trxDateTime = trxDateTime;
 	}
 
 
@@ -55,33 +56,33 @@ public class KioskMovement implements Serializable {
 	}
 
 
-	public String getService() {
-		return service;
+	public String getServiceId() {
+		return serviceId;
 	}
 
 
-	public void setService(String service) {
-		this.service = service;
+	public void setServiceId(String serviceId) {
+		this.serviceId = serviceId;
 	}
 
 
-	public String getOperationUserId() {
-		return operationUserId;
+	public String getAgentId() {
+		return agentId;
 	}
 
 
-	public void setOperationUserId(String operationUserId) {
-		this.operationUserId = operationUserId;
+	public void setAgentId(String agentId) {
+		this.agentId = agentId;
 	}
 
 
-	public String getCustomerPhoneNumber() {
-		return customerPhoneNumber;
+	public String getPayeePhone() {
+		return payeePhone;
 	}
 
 
-	public void setCustomerPhoneNumber(String customerPhoneNumber) {
-		this.customerPhoneNumber = customerPhoneNumber;
+	public void setPayeePhone(String payeePhone) {
+		this.payeePhone = payeePhone;
 	}
 
 
@@ -95,143 +96,148 @@ public class KioskMovement implements Serializable {
 	}
 
 
-	public BigDecimal getBalanceCreditAmount() {
-		return balanceCreditAmount;
+	public BigDecimal getBeforeCreditAmount() {
+		return beforeCreditAmount;
 	}
 
 
-	public void setBalanceCreditAmount(BigDecimal balanceCreditAmount) {
-		this.balanceCreditAmount = balanceCreditAmount;
+	public void setBeforeCreditAmount(BigDecimal beforeCreditAmount) {
+		this.beforeCreditAmount = beforeCreditAmount;
 	}
 
 
-	public BigDecimal getProductAmountAmount() {
-		return productAmountAmount;
+	public BigDecimal getPurchaseAmount() {
+		return purchaseAmount;
 	}
 
 
-	public void setProductAmountAmount(BigDecimal productAmountAmount) {
-		this.productAmountAmount = productAmountAmount;
+	public void setPurchaseAmount(BigDecimal purchaseAmount) {
+		this.purchaseAmount = purchaseAmount;
 	}
 
 
-	public BigDecimal getFeeAmount() {
-		return feeAmount;
+	public BigDecimal getKioskFee() {
+		return kioskFee;
 	}
 
 
-	public void setFeeAmount(BigDecimal feeAmount) {
-		this.feeAmount = feeAmount;
+	public void setKioskFee(BigDecimal kioskFee) {
+		this.kioskFee = kioskFee;
 	}
 
 
-	public BigDecimal getExpenseAmount() {
-		return expenseAmount;
+	public BigDecimal getInsertedAmount() {
+		return insertedAmount;
 	}
 
 
-	public void setExpenseAmount(BigDecimal expenseAmount) {
-		this.expenseAmount = expenseAmount;
+	public void setInsertedAmount(BigDecimal insertedAmount) {
+		this.insertedAmount = insertedAmount;
 	}
 
 
-	public BigDecimal getUsedCreditAmount() {
-		return usedCreditAmount;
+	public BigDecimal getUsedCredit() {
+		return usedCredit;
 	}
 
 
-	public void setUsedCreditAmount(BigDecimal usedCreditAmount) {
-		this.usedCreditAmount = usedCreditAmount;
+	public void setUsedCredit(BigDecimal usedCredit) {
+		this.usedCredit = usedCredit;
 	}
 
 
-	public BigDecimal getNetExpenseAmount() {
-		return netExpenseAmount;
+	public BigDecimal getNetAmount() {
+		return netAmount;
 	}
 
 
-	public void setNetExpenseAmount(BigDecimal netExpenseAmount) {
-		this.netExpenseAmount = netExpenseAmount;
+	public void setNetAmount(BigDecimal netAmount) {
+		this.netAmount = netAmount;
 	}
 
 
-	public BigDecimal getCoinAndBankAmout() {
-		return coinAndBankAmout;
+	public BigDecimal getPaymentAmount() {
+		return paymentAmount;
 	}
 
 
-	public void setCoinAndBankAmout(BigDecimal coinAndBankAmout) {
-		this.coinAndBankAmout = coinAndBankAmout;
+	public void setPaymentAmount(BigDecimal paymentAmount) {
+		this.paymentAmount = paymentAmount;
 	}
 
 
-	public BigDecimal getAddedCreditAmount() {
-		return addedCreditAmount;
+	public BigDecimal getAddedCredit() {
+		return addedCredit;
 	}
 
 
-	public void setAddedCreditAmount(BigDecimal addedCreditAmount) {
-		this.addedCreditAmount = addedCreditAmount;
+	public void setAddedCredit(BigDecimal addedCredit) {
+		this.addedCredit = addedCredit;
 	}
 
 
-	public BigDecimal getMovedCreditAmount() {
-		return movedCreditAmount;
+	public BigDecimal getRollOveredCredit() {
+		return rollOveredCredit;
 	}
 
 
-	public void setMovedCreditAmount(BigDecimal movedCreditAmount) {
-		this.movedCreditAmount = movedCreditAmount;
+	public void setRollOveredCredit(BigDecimal rollOveredCredit) {
+		this.rollOveredCredit = rollOveredCredit;
 	}
 
 
-	public String getResult() {
-		return result;
+	public String getStatus() {
+		return status;
 	}
 
 
-	public void setResult(String result) {
-		this.result = result;
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("KioskMovement [no=");
-		builder.append(no);
-		builder.append(", transactionDate=");
-		builder.append(transactionDate);
+		builder.append("KioskMovement [numberOfRows=");
+		builder.append(numberOfRows);
+		builder.append(", trxDateTime=");
+		builder.append(trxDateTime);
 		builder.append(", kioskId=");
 		builder.append(kioskId);
-		builder.append(", service=");
-		builder.append(service);
-		builder.append(", operationUserId=");
-		builder.append(operationUserId);
-		builder.append(", customerPhoneNumber=");
-		builder.append(customerPhoneNumber);
+		builder.append(", serviceId=");
+		builder.append(serviceId);
+		builder.append(", agentId=");
+		builder.append(agentId);
+		builder.append(", payeePhone=");
+		builder.append(payeePhone);
 		builder.append(", transactionId=");
 		builder.append(transactionId);
-		builder.append(", balanceCreditAmount=");
-		builder.append(balanceCreditAmount);
-		builder.append(", productAmountAmount=");
-		builder.append(productAmountAmount);
-		builder.append(", feeAmount=");
-		builder.append(feeAmount);
-		builder.append(", expenseAmount=");
-		builder.append(expenseAmount);
-		builder.append(", usedCreditAmount=");
-		builder.append(usedCreditAmount);
-		builder.append(", netExpenseAmount=");
-		builder.append(netExpenseAmount);
-		builder.append(", coinAndBankAmout=");
-		builder.append(coinAndBankAmout);
-		builder.append(", addedCreditAmount=");
-		builder.append(addedCreditAmount);
-		builder.append(", movedCreditAmount=");
-		builder.append(movedCreditAmount);
-		builder.append(", result=");
-		builder.append(result);
+		builder.append(", beforeCreditAmount=");
+		builder.append(beforeCreditAmount);
+		builder.append(", purchaseAmount=");
+		builder.append(purchaseAmount);
+		builder.append(", kioskFee=");
+		builder.append(kioskFee);
+		builder.append(", insertedAmount=");
+		builder.append(insertedAmount);
+		builder.append(", usedCredit=");
+		builder.append(usedCredit);
+		builder.append(", netAmount=");
+		builder.append(netAmount);
+		builder.append(", paymentAmount=");
+		builder.append(paymentAmount);
+		builder.append(", addedCredit=");
+		builder.append(addedCredit);
+		builder.append(", rollOveredCredit=");
+		builder.append(rollOveredCredit);
+		builder.append(", status=");
+		builder.append(status);
 		builder.append("]");
 		return builder.toString();
 	}

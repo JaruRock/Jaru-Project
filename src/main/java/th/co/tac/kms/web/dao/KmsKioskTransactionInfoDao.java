@@ -65,7 +65,7 @@ public class KmsKioskTransactionInfoDao extends AbstractDao {
 
 				transactionInfo.setKioskId(row.getString("kiosk_id"));
 				transactionInfo.setTrxDateTime(row.getString("trx_dateTime"));
-				transactionInfo.setTrxStatus(row.getString("trx_status"));
+				transactionInfo.setStatus(row.getString("trx_status"));
 				transactionInfo.setPayeePhone(row.getString("payee_phone"));
 
 				return transactionInfo;
