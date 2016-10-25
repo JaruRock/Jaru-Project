@@ -116,23 +116,24 @@ kms_kiosk_location_info.remark_address
 			+ " where 1 = 1 ";;
 		
 		List<Object> param = new ArrayList<Object>();
+		
+		if (!StringUtils.isEmpty(provinceId)) {
+			sql += " and province_id = ? ";
+			param.add(provinceId);
+		}
+		
 		if (!StringUtils.isEmpty(q)) {
 			sql += " and kiosk_id like ? ";
 			param.add("%"+q+"%");
 		}
 		
-		if (!StringUtils.isEmpty(provinceId)) {
-			sql += " and province_id like ? ";
-			param.add(provinceId);
-		}
-
 		if (!StringUtils.isEmpty(districtId)) {
-			sql += " and district_id like ? ";
+			sql += " and district_id = ? ";
 			param.add(districtId);
 		}
 		
 		if (!StringUtils.isEmpty(tambonId)) {
-			sql += " and tambon_id like ? ";
+			sql += " and tambon_id = ? ";
 			param.add(tambonId);
 		}
 
@@ -152,24 +153,28 @@ kms_kiosk_location_info.remark_address
 		public List<KmsKioskMachineInfo> getKioskId(String provinceId, String districtId, String tambonId) {
 
 			// If province_id given, find kiosk_id
-			String FindKioskId = "select kms_kiosk_machine_info.kiosk_id from kms_kiosk_machine_info"
+			String findKioskIdSQL = "select kms_kiosk_machine_info.kiosk_id from kms_kiosk_machine_info"
 					+ "Inner join kms_kiosk_location_info "
 					+ "on kms_kiosk_machine_info.location_id = kms_kiosk_location_info.location_id"
 					+ "where kms_kiosk_location_info.province_id = ?";
-
+			
+			List<Object> param = new ArrayList<Object>();
+			
+			param.add(provinceId);
+			
 			if (districtId != null) {
 
-				FindKioskId += " and kms_kiosk_location_info.district_id =? ";
-			} else if (tambonId != null) {
-				FindKioskId += " and kms_kiosk_location_info.tambon_id=? ";
-			} else {
-				log_debug("input is invalid");
-			}
+				findKioskIdSQL += " and kms_kiosk_location_info.district_id =? ";
+				param.add(districtId);
+			} 
+			if (tambonId != null) {
+				findKioskIdSQL += " and kms_kiosk_location_info.tambon_id=? ";
+				param.add(tambonId);
+			} 
+			
+			//Object[] param = { provinceId, districtId, tambonId };
 
-			List<KmsKioskMachineInfo> kioskIds = new ArrayList<KmsKioskMachineInfo>();
-			Object[] param = { provinceId, districtId, tambonId };
-
-			return jdbcTemplate.query(FindKioskId, param, new RowMapper<KmsKioskMachineInfo>() {
+			return jdbcTemplate.query(findKioskIdSQL, param.toArray(), new RowMapper<KmsKioskMachineInfo>() {
 				public KmsKioskMachineInfo mapRow(ResultSet row, int rowNum) throws SQLException {
 					KmsKioskMachineInfo kioskId = new KmsKioskMachineInfo();
 
