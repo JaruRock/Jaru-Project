@@ -35,7 +35,7 @@ public class KmsKioskTransactionInfoDao extends AbstractDao {
 		String kioskIdToString = listToString(kioskId);
 		
 		// If province_id given, find kiosk_id
-		String transactionSql = " select kiosk_id, trx_datetime, payee_phone, trx_status from kms_transaction"
+		String transactionSql = " select * from kms_transaction"
 				+ " where kiosk_id in " + kioskIdToString 
 				+ " and trx_datetime >= to_timestamp(:startDate, 'YYYY-MM-DD') "
 				+ " and trx_datetime <= to_timestamp(:endDate, 'YYYY-MM-DD') "
@@ -63,11 +63,19 @@ public class KmsKioskTransactionInfoDao extends AbstractDao {
 			public KmsKioskTransactionInfo mapRow(ResultSet row, int rowNum) throws SQLException {
 				KmsKioskTransactionInfo transactionInfo = new KmsKioskTransactionInfo();
 
-				transactionInfo.setKioskId(row.getString("kiosk_id"));
+				transactionInfo.setNumberOfRows(row.getString("no"));
 				transactionInfo.setTrxDateTime(row.getString("trx_dateTime"));
+				transactionInfo.setKioskId(row.getString("kiosk_id"));
 				transactionInfo.setStatus(row.getString("trx_status"));
+				transactionInfo.setServiceId(row.getString("service_id"));
 				transactionInfo.setPayeePhone(row.getString("payee_phone"));
-
+				transactionInfo.setTransactionId(row.getString("tx_id"));
+				transactionInfo.setBeforeCreditAmount(row.getBigDecimal("before_credit_amount"));
+				transactionInfo.setPurchaseAmount(row.getBigDecimal("purchase_amount"));
+				transactionInfo.setKioskFee(row.getBigDecimal("kiosks_fee"));		
+				transactionInfo.setPaymentAmount(row.getBigDecimal("payment_amount"));		
+				transactionInfo.setStatus(row.getString("result"));
+				
 				return transactionInfo;
 			}
 		});

@@ -42,7 +42,7 @@ public class KioskMovementReportService extends AbstractService {
 		Long beginTime = System.currentTimeMillis();
 		try {
 			List<String> kioskIdList = null;
-			//Integer provinceId = critiria.
+			//Integer provinceId = critiria
 			String newToDate = addDay(critiria.getToDate());
 			
 			String kioskId = critiria.getKioskId();
@@ -67,8 +67,21 @@ public class KioskMovementReportService extends AbstractService {
 				try {
 					// Clone bean
 					BeanUtils.copyProperties(kioskMovement, transactionInfo);
-
-					kioskMovement.setInsertedAmount(transactionInfo.getPurchaseAmount().add(transactionInfo.getKioskFee()) );
+					kioskMovement.setInsertedAmount(transactionInfo.getPurchaseAmount().add(transactionInfo.getKioskFee()) );// add 2 big decimal numbers
+					
+					// check if BeforeCreditAmount is greater than InsertedAmount
+					if(kioskMovement.getBeforeCreditAmount().compareTo(kioskMovement.getInsertedAmount()) < 0){
+						kioskMovement.setUsedCredit(kioskMovement.getInsertedAmount()); 
+					}
+					else {
+						kioskMovement.setUsedCredit(kioskMovement.getBeforeCreditAmount()); 
+					}
+					// subtract InsertedAmount with UsedCredit
+					kioskMovement.setNetAmount(kioskMovement.getInsertedAmount().subtract(kioskMovement.getUsedCredit()));
+					// subtract netAmount with paymentAmount
+					kioskMovement.setAddedCredit(kioskMovement.getPaymentAmount().subtract(kioskMovement.getNetAmount()));
+					
+					kioskMovement.setRollOveredCredit(kioskMovement.getAddedCredit());
 					
 
 				} catch (IllegalAccessException e) {
